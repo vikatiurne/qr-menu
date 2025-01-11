@@ -8,10 +8,9 @@
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "types": ["node"],
-    "baseUrl": "./",
+    "baseUrl": "./src",
     "paths": {
-      "@/*": ["src/*"],
-      "~/*": ["public/*"]
+      "@/*": ["*"]
     }
   },
   "include": ["src/**/*"],

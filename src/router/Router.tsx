@@ -8,10 +8,13 @@ const Home = lazy(() => import('@/pages/Home/Home'));
 const Tables = lazy(() => import('@/pages/Tables/Tables'));
 const Support = lazy(() => import('@/pages/Support/Support'));
 const Login = lazy(() => import('@/pages/Auth/Login/Login'));
-const Registration = lazy(() => import('@/pages/Auth/Registration/Registration'));
-const PasswordRecovery = lazy(() => import('@/pages/Auth/PasswordRecovery/PasswordRecovery'));
+const Registration = lazy(
+  () => import('@/pages/Auth/Registration/Registration')
+);
+const PasswordRecovery = lazy(
+  () => import('@/pages/Auth/PasswordRecovery/PasswordRecovery')
+);
 const NewPassword = lazy(() => import('@/pages/Auth/NewPassword/NewPassword'));
-
 
 const Router = () => {
   return (
