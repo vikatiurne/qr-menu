@@ -1,8 +1,10 @@
+import Container from "@/hoc/Container/Container"
+import RegistrationForm from "./RegistrationForm"
 
 const Registration: React.FC = () => {
-  return (
-    <div>Registration</div>
-  )
+  return <Container>
+  <RegistrationForm />
+</Container>
 }
 
 export default Registration

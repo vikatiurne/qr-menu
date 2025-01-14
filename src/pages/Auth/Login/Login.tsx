@@ -1,5 +1,10 @@
+import Container from "@/hoc/Container/Container";
+import LoginForm from "./LoginForm";
+
 const Login: React.FC = () => {
-  return <div className="">Login</div>;
+  return <Container>
+  <LoginForm />
+</Container>
 };
 
 export default Login;
