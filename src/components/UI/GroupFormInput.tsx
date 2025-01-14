@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import showicon from '@/assets/images/Auth/showicon.svg'
+import warning from '@/assets/images/Auth/warning.svg'
 
 interface GroupFormInputProps {
   registerGroup: any; //уточнить как правильно указывать
@@ -41,7 +43,7 @@ const GroupFormInput: React.FC<GroupFormInputProps> = ({
           >
             <img
               className="absolute  right-5  top-1/2  -translate-y-1/2"
-              src={!error ? '/ShowData.svg' : '/warning.svg'}
+              src={!error ? showicon : warning }
               alt="icon"
             />
           </button>
@@ -49,11 +51,15 @@ const GroupFormInput: React.FC<GroupFormInputProps> = ({
         {error && (
           <img
             className="absolute  right-5  top-1/2  -translate-y-1/2"
-            src={!error ? '/showicon.svg' : '/warning.svg'}
+            src={!error ? showicon : warning }
             alt="icon"
           />
         )}
       </div>
+      
+      {/* <div>
+        <img src={showicon}  />
+      </div> */}
 
       {error && (
         <span className={`text-[14px] mt-[6px] text-[#F64C4C]`}>

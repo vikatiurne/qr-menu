@@ -47,6 +47,7 @@ const LoginForm: React.FC = () => {
         <h2 className="font-bold text-[31px]">Sign in to</h2>
         <h3 className="font-medium text-[24px]">restaurant control system</h3>
       </div>
+
       <GroupFormInput
         title={'Email'}
         placeholder={'Enter your email'}
