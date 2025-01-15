@@ -1,5 +1,5 @@
 import Container from "@/hoc/Container/Container";
-import LoginForm from "../../../components/Login/LoginForm";
+import LoginForm from "../../../components/Auth/Login/LoginForm";
 
 const Login: React.FC = () => {
   return <Container>
