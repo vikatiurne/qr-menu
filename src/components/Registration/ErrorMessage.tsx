@@ -1,6 +1,8 @@
 import React from 'react';
 import Subtract from '@/assets/images/Auth/Subtract.svg'
 import warning from '@/assets/images/Auth/warning.svg'
+import { FormState } from 'react-hook-form';
+// import { FormState } from 'react-hook-form';
 
 interface ErrorMessageProps {
     isErrorEmail:boolean ,
@@ -10,7 +12,7 @@ interface ErrorMessageProps {
 const ErrorMessage:React.FC<ErrorMessageProps> = ({formState , isErrorEmail}) => {
   return (
     <div className='flex gap-2 flex-col'>
-      {formState.errors.nameRestaurant && (
+      {formState.errors?.nameRestaurant && (
         <div
           className={`text-[14px] h-[60px] flex items-center  text-[#F64C4C] bg-[#FFF1F1] py-3 px-4 rounded-md gap-2`}
         >

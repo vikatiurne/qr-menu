@@ -1,5 +1,5 @@
 import Container from "@/hoc/Container/Container"
-import RegistrationForm from "./RegistrationForm"
+import RegistrationForm from "../../../components/Registration/RegistrationForm"
 
 const Registration: React.FC = () => {
   return <Container>

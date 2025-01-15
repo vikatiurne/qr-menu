@@ -1,9 +1,10 @@
 import { SubmitErrorHandler, SubmitHandler, useForm } from 'react-hook-form';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { changeCheckedSign } from '@/pages/Auth/authSlice';
 import { Link } from 'react-router-dom';
 import GroupFormInput from '@/components/UI/GroupFormInput';
 import MyButton from '@/components/UI/MyButton';
+import { useAppSelector } from '@/hooks/useAppSelector';
 
 export type FormData = {
   email: string;
@@ -12,12 +13,9 @@ export type FormData = {
 
 const LoginForm: React.FC = () => {
   const { register, handleSubmit , reset, formState } = useForm<FormData>();
-  const { chekedSignRemember } = useSelector((state) => state.auth);
+  const { chekedSignRemember } = useAppSelector((state) => state.auth);
   const dispatch = useDispatch();
-
   const fakeData = { email: 'fakeEmail@i.ua', password: 'Test123456' };
-
-  // console.log(chekedSignRemember)
 
   const submit: SubmitHandler<FormData> = (data) => {
     if (
@@ -27,7 +25,8 @@ const LoginForm: React.FC = () => {
       const newSubmitData = { ...data, chekedSignRemember };
       console.log(newSubmitData);
       reset();
-      dispatch(changeCheckedSign(!chekedSignRemember))
+      dispatch(changeCheckedSign(false))
+     
     } else {
       console.log('данные не совпадают');
       console.log(data);
@@ -35,7 +34,6 @@ const LoginForm: React.FC = () => {
   };
   const error: SubmitErrorHandler<FormData> = (data) => {
     console.log(data);
-      console.log(chekedSignRemember)
   };
 
   return (
@@ -86,7 +84,7 @@ const LoginForm: React.FC = () => {
         <div className="flex gap-2 relative -left-5 items-center ">
           <input
             type="checkbox"
-            value={chekedSignRemember}
+            checked={chekedSignRemember}
             id="checkboxForm"
             className=" rounded-none  w-4 h-4"
           />

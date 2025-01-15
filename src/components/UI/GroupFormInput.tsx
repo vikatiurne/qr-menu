@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
 import showicon from '@/assets/images/Auth/showicon.svg'
 import warning from '@/assets/images/Auth/warning.svg'
+import { FieldError , UseFormRegisterReturn } from 'react-hook-form';
 
 interface GroupFormInputProps {
-  registerGroup: any; //уточнить как правильно указывать
+  registerGroup: UseFormRegisterReturn;
   title: string;
   type: string;
   placeholder: string;
   activeIconVisible?: boolean;
   isErrorConfirn?: boolean;
-  error?: any;
+  error?: FieldError | undefined
+
 }
 
 const GroupFormInput: React.FC<GroupFormInputProps> = ({
@@ -21,7 +23,7 @@ const GroupFormInput: React.FC<GroupFormInputProps> = ({
   registerGroup,
   error,
 }) => {
-  const [visibleData, setVisibleData] = useState(type);
+  const [visibleData, setVisibleData] = useState<string>(type);
 
   return (
     <div className="min-h-[92px] flex  flex-col">
@@ -36,7 +38,7 @@ const GroupFormInput: React.FC<GroupFormInputProps> = ({
         {activeIconVisible && (
           <button
             type="button"
-            disabled={error}
+            disabled={error ? true : false}
             onClick={() =>
               setVisibleData(visibleData === 'text' ? 'password' : 'text')
             }
@@ -56,11 +58,6 @@ const GroupFormInput: React.FC<GroupFormInputProps> = ({
           />
         )}
       </div>
-      
-      {/* <div>
-        <img src={showicon}  />
-      </div> */}
-
       {error && (
         <span className={`text-[14px] mt-[6px] text-[#F64C4C]`}>
           {error.message}{' '}

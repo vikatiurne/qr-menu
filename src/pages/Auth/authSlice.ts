@@ -5,7 +5,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 type isSignType = 'in' | 'up' | 'reset';
 
-interface SignState {
+export interface SignState {
   isSign: isSignType;
   chekedSignRemember: boolean
 }

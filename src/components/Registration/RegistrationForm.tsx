@@ -13,9 +13,9 @@ export type FormData = {
 };
 
 const RegistrationForm: React.FC = () => {
-  const { register, handleSubmit,reset, getValues , formState , } =
-    useForm<FormData>();
-  const [isErrorEmail, setIsErrorEmail] = useState(false);
+  const { register, handleSubmit,reset, getValues , formState } =useForm<FormData>();
+  const [isErrorEmail, setIsErrorEmail] = useState<boolean>(false);
+
   const fakeEmail = 'fakeEmail@i.ua';
 
   const submit: SubmitHandler<FormData> = (data) => {
@@ -70,7 +70,7 @@ const RegistrationForm: React.FC = () => {
       <GroupFormInput
         title={'Password'}
         placeholder={'Enter your Password'}
-        type="text"
+        type="password"
         error={formState.errors.password}
         activeIconVisible={true}
         registerGroup={{
@@ -86,7 +86,7 @@ const RegistrationForm: React.FC = () => {
       <GroupFormInput
         title={'Confirm password'}
         placeholder={'Confirm ur Password'}
-        type="text"
+        type="password"
         error={formState.errors.confirmPassword}
         activeIconVisible={true}
         registerGroup={{
