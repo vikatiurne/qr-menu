@@ -7,7 +7,7 @@ const Dashboard = () => {
   return (
     <div>
       <Suspense>
-        <Container>
+        <Container padding="px-36 tablet:px-11 mobile:px-4">
           <Header />
         </Container>
         <Outlet />
