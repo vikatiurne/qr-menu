@@ -1,5 +1,4 @@
 import { Link, useLocation } from 'react-router-dom';
-import Button from '@/components/UI/Button';
 import LoginIcon from '@/assets/Header/icon.svg';
 import CustomButton from '../UI/CustomButton';
 
@@ -14,13 +13,23 @@ const Header: React.FC = () => {
         alt="Logo"
       />
       <div className="flex flex-1 items-end justify-end gap-[18%]">
-        <div className="flex items-center justify-end gap-5">
-          <button className="font-raleway text-lg tablet:w-6 mobile:font-elMassiri mobile:text-sm">
+        <div className="flex flex-1 justify-end items-center gap-1">
+          <CustomButton
+            className="w-9 h-9 font-raleway text-lg mobile:font-elMessiri mobile:text-sm mobile:w-7  mobile:h-7  "
+            active
+            buttonType="language"
+            borderRadius="rounded-full before:rounded-full p-1"
+            whiteBtn
+          >
             EN
-          </button>
-          <button className="font-raleway text-lg tablet:w-6 mobile:font-elMassiri mobile:text-sm">
+          </CustomButton>
+          <CustomButton
+            className="w-9 h-9 font-raleway text-lg mobile:font-elMessiri mobile:text-sm mobile:w-7  mobile:h-7  "
+            active={false}
+            buttonType="language"
+          >
             UA
-          </button>
+          </CustomButton>
         </div>
         {location.pathname === '/' && (
           <Link to="login">
@@ -31,21 +40,11 @@ const Header: React.FC = () => {
                 alt="Login"
               />
             </button>
-            {/* <Button
-              className="w-[9rem] h-[2.75rem] rounded-[.6875rem] p-[.25rem] bg-gradient-to-t from-[#15C5CE] to-[#0C677C] mobile:hidden"
-              onClick={() => console.log('Login')}
-            >
-              <span className="flex items-center justify-center w-full h-full px-[2rem] py-[.625rem] bg-white rounded-[.625rem]">
-                Увійти
-              </span>
-            </Button> */}
-            {/* <Button className="relative text-lg font-raleway w-[7.625rem] h-[2.75rem] bg-white rounded-[.625rem] border-none py-[.625rem] px-8 before:content-[''] before:absolute before:inset-0 before:bg-gradient-to-t before:from-[#15C5CE] before:to-[#0C677C] before:rounded-[.75rem] before:m-[-0.2rem] before:z-[-1]">
-              Увійти
-            </Button> */}
-
             <CustomButton
-              className="w-[7.625rem] h-[2.75rem] mobile:hidden"
-              borderRadius="rounded-[.625rem]"
+              active
+              buttonType="login"
+              className="w-[6.6rem] h-[2.3rem] mobile:hidden"
+              borderRadius="rounded-[.625rem] before:rounded-[.625rem]"
               whiteBtn
               onClick={() => console.log('Login')}
             >
