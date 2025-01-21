@@ -13,7 +13,8 @@ export type FormData = {
 };
 
 const RegistrationForm: React.FC = () => {
-  const { register, handleSubmit,reset, getValues , formState } =useForm<FormData>();
+  const { register, handleSubmit, reset, getValues, formState, setFocus } =
+    useForm<FormData>();
   const [isErrorEmail, setIsErrorEmail] = useState<boolean>(false);
 
   const fakeEmail = 'fakeEmail@i.ua';
@@ -21,20 +22,21 @@ const RegistrationForm: React.FC = () => {
   const submit: SubmitHandler<FormData> = (data) => {
     if (data.confirmPassword === data.password && data.email != fakeEmail) {
       console.log(data);
-      setIsErrorEmail(false)
-      reset()
-    }else if(data.email === fakeEmail){
-      setIsErrorEmail(true)
+      setIsErrorEmail(false);
+      reset();
+    } else if (data.email === fakeEmail) {
+      setIsErrorEmail(true);
+      setFocus('email');
     } else {
       console.log('ne');
     }
   };
   const error: SubmitErrorHandler<FormData> = (data) => {
-    setIsErrorEmail(false)
+    setIsErrorEmail(false);
   };
   return (
     <form
-      className="max-w-[423px] flex flex-col gap-10 p-5 text-basisText min-h-[573px]"
+      className="max-w-[423px] flex flex-col sm:gap-10 gap-5 p-5 text-basisText min-h-[573px]"
       onSubmit={handleSubmit(submit, error)}
     >
       <div>
@@ -75,10 +77,12 @@ const RegistrationForm: React.FC = () => {
         activeIconVisible={true}
         registerGroup={{
           ...register('password', {
-            required: 'Enter a secure password: At least 8 characters long, containing uppercase and lowercase letters and numbers!',
+            required:
+              'Enter a secure password: At least 8 characters long, containing uppercase and lowercase letters and numbers!',
             pattern: {
-              value: /(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{8,}/ ,
-              message: 'Enter a secure password: At least 8 characters long, containing uppercase and lowercase letters and numbers!'
+              value: /(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{8,}/,
+              message:
+                'Enter a secure password: At least 8 characters long, containing uppercase and lowercase letters and numbers!',
             },
           }),
         }}
@@ -91,21 +95,26 @@ const RegistrationForm: React.FC = () => {
         activeIconVisible={true}
         registerGroup={{
           ...register('confirmPassword', {
-            required: 'Enter a secure password: At least 8 characters long, containing uppercase and lowercase letters and numbers!',
+            required:
+              'Enter a secure password: At least 8 characters long, containing uppercase and lowercase letters and numbers!',
             pattern: {
-              value: /(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{8,}/ ,
-              message: 'Enter a secure password: At least 8 characters long, containing uppercase and lowercase letters and numbers!'
+              value: /(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{8,}/,
+              message:
+                'Enter a secure password: At least 8 characters long, containing uppercase and lowercase letters and numbers!',
             },
-           validate: (value: number) => {
+            validate: (value: number) => {
               const { password } = getValues();
               return password === value || 'Passwords do not match';
-            }
+            },
           }),
-        }}        
+        }}
       />
-      <ErrorMessage formState={formState} isErrorEmail={isErrorEmail}  />
+      <ErrorMessage formState={formState} isErrorEmail={isErrorEmail} />
 
-      <MyButton className="border h-[60px] rounded-md button text-white ">
+      <MyButton
+        className="border h-[60px] rounded-md button text-white "
+        disabled={!formState.isValid}
+      >
         Register a new account
       </MyButton>
       <div className="text-center ">

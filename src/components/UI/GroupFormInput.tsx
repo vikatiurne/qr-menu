@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import showicon from '@/assets/images/Auth/showicon.svg'
-import warning from '@/assets/images/Auth/warning.svg'
-import { FieldError , UseFormRegisterReturn } from 'react-hook-form';
+import showicon from '@/assets/images/Auth/showicon.svg';
+import warning from '@/assets/images/Auth/warning.svg';
+import { FieldError, UseFormRegisterReturn } from 'react-hook-form';
+import invisible from '@/assets/images/Auth/invisible.svg';
+
 
 interface GroupFormInputProps {
   registerGroup: UseFormRegisterReturn;
@@ -10,8 +12,7 @@ interface GroupFormInputProps {
   placeholder: string;
   activeIconVisible?: boolean;
   isErrorConfirn?: boolean;
-  error?: FieldError | undefined
-
+  error?: FieldError | undefined;
 }
 
 const GroupFormInput: React.FC<GroupFormInputProps> = ({
@@ -30,7 +31,7 @@ const GroupFormInput: React.FC<GroupFormInputProps> = ({
       <h3 className="text-[16px] font-medium mb-2">{title}</h3>
       <div className=" flex relative">
         <input
-          className={`  ${error || isErrorConfirn ? 'border-red-500 ' : 'w-full h-[60px] rounded-md pl-[27px]'} border  w-full h-[59px] rounded-md pl-[27px]  `}
+          className={`  ${error || isErrorConfirn ? 'border-red-500 ' : 'w-full h-[60px] rounded-md pl-[27px]'} outline-[#15C5CE] border  w-full h-[59px] rounded-md pl-[27px]  `}
           type={visibleData}
           placeholder={placeholder}
           {...registerGroup}
@@ -43,17 +44,25 @@ const GroupFormInput: React.FC<GroupFormInputProps> = ({
               setVisibleData(visibleData === 'text' ? 'password' : 'text')
             }
           >
-            <img
-              className="absolute  right-5  top-1/2  -translate-y-1/2"
-              src={!error ? showicon : warning }
-              alt="icon"
-            />
+            {!error ? (
+              <img
+                className="absolute  right-5  top-1/2  -translate-y-1/2 h-5 w-5 "
+                src={!error && visibleData === 'text' ? showicon : invisible}
+                alt="icon"
+              />
+            ) : (
+              <img
+                className="absolute  right-5  top-1/2  -translate-y-1/2 "
+                src={warning}
+                alt="icon"
+              />
+            )}
           </button>
-        )}  
+        )}
         {error && (
           <img
             className="absolute  right-5  top-1/2  -translate-y-1/2"
-            src={!error ? showicon : warning }
+            src={!error ? showicon : warning}
             alt="icon"
           />
         )}

@@ -12,10 +12,14 @@ export type FormData = {
 };
 
 const LoginForm: React.FC = () => {
-  const { register, handleSubmit , reset, formState } = useForm<FormData>();
+  const { register, handleSubmit, reset, formState  } = useForm<FormData>({
+
+  });
   const { chekedSignRemember } = useAppSelector((state) => state.auth);
   const dispatch = useDispatch();
   const fakeData = { email: 'fakeEmail@i.ua', password: 'Test123456' };
+
+  console.log( chekedSignRemember)
 
   const submit: SubmitHandler<FormData> = (data) => {
     if (
@@ -25,8 +29,7 @@ const LoginForm: React.FC = () => {
       const newSubmitData = { ...data, chekedSignRemember };
       console.log(newSubmitData);
       reset();
-      dispatch(changeCheckedSign(false))
-     
+      dispatch(changeCheckedSign(false));
     } else {
       console.log('данные не совпадают');
       console.log(data);
@@ -38,8 +41,8 @@ const LoginForm: React.FC = () => {
 
   return (
     <form
-      className="max-w-[423px] flex flex-col gap-10 p-5 text-basisText min-h-[573px]"
       onSubmit={handleSubmit(submit, error)}
+      className="max-w-[423px] flex flex-col  sm:gap-10 gap-5 p-5 text-basisText min-h-[573px]"
     >
       <div>
         <h2 className="font-bold text-[31px]">Sign in to</h2>
@@ -51,7 +54,6 @@ const LoginForm: React.FC = () => {
         placeholder={'Enter your email'}
         type="text"
         error={formState.errors.email}
-        
         registerGroup={{
           ...register('email', {
             required: 'Enter a valid e-mail address!',
@@ -68,6 +70,7 @@ const LoginForm: React.FC = () => {
         placeholder={'Enter your Password'}
         type="text"
         error={formState.errors.password}
+        activeIconVisible={true}
         registerGroup={{
           ...register('password', {
             required:
@@ -77,16 +80,17 @@ const LoginForm: React.FC = () => {
               message:
                 'Enter a secure password: At least 8 characters long, containing uppercase and lowercase letters and numbers!',
             },
-          }), 
+          }),
         }}
       />
       <div className="flex justify-between items-center text-[16px] font-medium ">
-        <div className="flex gap-2 relative -left-5 items-center ">
+        <div className="flex gap-2 relative sm:-left-5 items-center  ">
           <input
             type="checkbox"
             checked={chekedSignRemember}
             id="checkboxForm"
             className=" rounded-none  w-4 h-4"
+            readOnly 
           />
           <label
             htmlFor="checkboxForm"
@@ -98,12 +102,15 @@ const LoginForm: React.FC = () => {
         </div>
         <Link
           to={'/forgot-password'}
-          className={`text-[#15C5CE] font-medium relative -right-5 hover:text-[#2f7a7e] `}
+          className={`text-[#15C5CE] font-medium relative sm:-right-5 hover:text-[#2f7a7e] `}
         >
           Forgot Password ?
         </Link>
       </div>
-      <MyButton  className="border h-[60px] rounded-md button text-white ">
+      <MyButton
+        disabled={ !formState.isValid }
+        className={`border h-[60px] rounded-md button ` } 
+      >
         Register a new account
       </MyButton>
       <div className="text-center ">
@@ -116,6 +123,7 @@ const LoginForm: React.FC = () => {
         >
           Sign up
         </Link>
+        {/* <div>{formState.errors.email && <div>fqfqfq</div>}</div> */}
       </div>
     </form>
   );

@@ -12,7 +12,7 @@ module.exports = {
       textColor: {
         'basisText' : '#4B4B4B' ,
         'lightGrey' : '#8E8E8E'
-      }
+      },
     }
   },
   plugins: [],
