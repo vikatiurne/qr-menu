@@ -1,14 +1,18 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: [
-    "./src/**/*.{js,jsx,ts,tsx}", 
-  ],
+
+export default {
+  content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
-      backgroundImage: {
-        'custom-gradient': 'linear-gradient(0deg, rgba(21,197,206,1) 0%, rgb(14, 129, 155) 100%)',
+      fontFamily: {
+        raleway: ['Raleway', 'sans-serif'],
+        elMassiri: ['El Messiri', 'sans-serif'],
       },
-    }
+      screens: {
+        tablet: { max: '1024px' },
+        mobile: { max: '375px' },
+      },
+    },
   },
   plugins: [],
-}
+};

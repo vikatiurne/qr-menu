@@ -1,7 +1,6 @@
 import CostSavings from '@/components/Home/CostSavings/CostSavings';
 import Footer from '@/components/Home/Footer/Footer';
-import Header from '@/components/Home/Header/Header';
-import { Hero } from '@/components/Home/Hero/Hero';
+import Hero from '@/components/Home/Hero/Hero';
 import JoinUs from '@/components/Home/JoinUs/JoinUs';
 import MenuOptions from '@/components/Home/MenuOptions/MenuOptions';
 import Container from '@/hoc/Container/Container';
@@ -10,7 +9,6 @@ const Home: React.FC = () => {
   return (
     <div>
       <Container>
-        <Header />
         <Hero />
         <MenuOptions />
         <CostSavings />
