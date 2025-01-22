@@ -1,4 +1,5 @@
 import CustomButton from '@/components/UI/CustomButton';
+import { Link } from 'react-router-dom';
 import HeroCardImgLt from '@/assets/Home/cardImgLt.png';
 import HeroCardImgRt from '@/assets/Home/cardImgRt.png';
 
@@ -19,12 +20,15 @@ const Hero: React.FC = () => {
               вашого ресторану
             </p>
             <div className="text-white flex justify-center">
+            <Link to="#JoinUs">
               <CustomButton
                 className="px-8 py-1 text-2xl"
                 borderRadius="rounded-lg"
+                whiteBtn={false}
               >
                 Спробувати
               </CustomButton>
+              </Link>
             </div>
           </div>
           <div className="lg:row-span-2  flex justify-center items-center">
