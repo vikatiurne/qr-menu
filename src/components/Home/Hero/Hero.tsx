@@ -20,9 +20,9 @@ const Hero: React.FC = () => {
             </p>
           </div>
           {/* part2 rghtImg*/}
-          <div className="lg:row-span-2 flex justify-center items-center object-contain">
+          <div className="lg:row-span-2 flex justify-center items-center object-contain ">
             <img
-              className="w-full  h-full object-cover rounded-3xl"
+              className="xl:w-full h-full object-cover rounded-3xl lg:w-[75%]"
               src={HeroCardImgRt}
               alt="cardImgRgt"
             />
@@ -31,7 +31,7 @@ const Hero: React.FC = () => {
           <div className="grid grid-cols-1 grid-rows-[auto,1fr] items-center justify-center">
             {/* 1 row - button + link*/}
             <Link
-              className="w-[max-content] h-[max-content] bg-custom-gradient xl:rounded-xl  lg:rounded-xl rounded-xl  mx-auto my-12"
+              className="w-[max-content] h-[max-content] bg-custom-gradient xl:rounded-xl  lg:rounded-xl rounded-xl mx-auto my-12"
               to="#JoinUs"
             >
               <CustomButton
@@ -43,16 +43,16 @@ const Hero: React.FC = () => {
               </CustomButton>
             </Link>
             {/* 2 row - img+txt */}
-            <div className="grid grid-cols-2 gap-4 mt-auto">
+            <div className="grid grid-cols-2 gap-4 m-auto xl:w-full lg:w-[75%]">
               <img className="w-full" src={HeroCardImgLt} alt="cardImgLft" />
-              <p className="text-white text-center xl:text-3xl lg:text-4xl md:text-3xl  text-2xl flex items-center px-2 bg-gradient-to-top border-none rounded-3xl overflow-hidden">
+              <p className="text-white text-center uppercase xl:text-2xl md:text-3xl  text-xl flex items-center px-2 bg-gradient-to-top border-none rounded-3xl overflow-hidden">
                 Оптимізуйте ресторанний бізнес із Velori
               </p>
             </div>
           </div>
         </div>
       </div>
-      <p className="text-3xl xl:text-4xl lg:text-3xl md:text-2xl font-bold w-[90%] mx-auto mt-10 h-[max-content]">
+      <p className="text-3xl lg:text-4xl font-bold lg:w-[90%] w-full mx-auto mt-10 h-[max-content]">
         Velori перетворює меню на{' '}
         <span className="gradient-to-top">QR-код</span>, а
         <span className="bg-gradient-to-top text-transparent bg-clip-text">
