@@ -12,37 +12,40 @@ export type FormData = {
 };
 
 const LoginForm: React.FC = () => {
-  const { register, handleSubmit, reset, formState  } = useForm<FormData>({
-
-  });
+  const { register, handleSubmit, reset, formState , clearErrors} =
+    useForm<FormData>({
+      mode: 'onBlur'
+    });
   const { chekedSignRemember } = useAppSelector((state) => state.auth);
   const dispatch = useDispatch();
-  const fakeData = { email: 'fakeEmail@i.ua', password: 'Test123456' };
-
-  console.log( chekedSignRemember)
-
+  // const fakeData = { email: 'fakeEmail@i.ua', password: 'Test123456' };
+  
   const submit: SubmitHandler<FormData> = (data) => {
-    if (
-      data.email === fakeData.email &&
-      String(data.password) === fakeData.password
-    ) {
-      const newSubmitData = { ...data, chekedSignRemember };
-      console.log(newSubmitData);
-      reset();
-      dispatch(changeCheckedSign(false));
-    } else {
-      console.log('данные не совпадают');
-      console.log(data);
-    }
+    const newSubmitData = { ...data, chekedSignRemember };
+    console.log(newSubmitData);
+    reset()
+    dispatch(changeCheckedSign(false));
+    // if (
+    //   data.email === fakeData.email &&
+    //   String(data.password) === fakeData.password
+    // ) {
+    //   const newSubmitData = { ...data, chekedSignRemember };
+    //   console.log(newSubmitData);
+    //   reset();
+    //   dispatch(changeCheckedSign(false));
+    // } else {
+    //   console.log('данные не совпадают');
+    //   console.log(data);
+    // }
   };
   const error: SubmitErrorHandler<FormData> = (data) => {
-    console.log(data);
+    console.log(data)
   };
 
   return (
     <form
       onSubmit={handleSubmit(submit, error)}
-      className="max-w-[423px] flex flex-col  sm:gap-10 gap-5 p-5 text-basisText min-h-[573px]"
+      className="max-w-[423px] flex flex-col  sm:gap-10 gap-5  text-basisText min-h-[573px] relative z-50  mt-[138px]"
     >
       <div>
         <h2 className="font-bold text-[31px]">Sign in to</h2>
@@ -61,6 +64,7 @@ const LoginForm: React.FC = () => {
               value: /.+@.+\..+/i,
               message: 'Enter a valid e-mail address!',
             },
+            onChange: () => formState.errors.email && clearErrors('email')
           }),
         }}
       />
@@ -68,7 +72,7 @@ const LoginForm: React.FC = () => {
       <GroupFormInput
         title={'Password'}
         placeholder={'Enter your Password'}
-        type="text"
+        type="password"
         error={formState.errors.password}
         activeIconVisible={true}
         registerGroup={{
@@ -80,24 +84,24 @@ const LoginForm: React.FC = () => {
               message:
                 'Enter a secure password: At least 8 characters long, containing uppercase and lowercase letters and numbers!',
             },
+            onChange: () => formState.errors.password && clearErrors('password')
           }),
         }}
       />
       <div className="flex justify-between items-center text-[16px] font-medium ">
         <div className="flex gap-2 relative sm:-left-5 items-center  ">
-          <input
-            type="checkbox"
-            checked={chekedSignRemember}
-            id="checkboxForm"
-            className=" rounded-none  w-4 h-4"
-            readOnly 
-          />
           <label
-            htmlFor="checkboxForm"
-            className="cursor-pointer"
             onClick={() => dispatch(changeCheckedSign(!chekedSignRemember))}
+            className="flex items-center gap-2 cursor-pointer"
           >
-            Remember me
+            <input
+              type="checkbox"
+              checked={chekedSignRemember}
+              id="checkboxForm"
+              className=" rounded-none  w-4 h-4 cursor-pointer"
+              readOnly
+            />
+            <button type="button">Remember me</button>
           </label>
         </div>
         <Link
@@ -108,8 +112,8 @@ const LoginForm: React.FC = () => {
         </Link>
       </div>
       <MyButton
-        disabled={ !formState.isValid }
-        className={`border h-[60px] rounded-md button ` } 
+        disabled={!formState.isValid}
+        className={`border h-[60px] rounded-md button `}
       >
         Register a new account
       </MyButton>
@@ -123,7 +127,6 @@ const LoginForm: React.FC = () => {
         >
           Sign up
         </Link>
-        {/* <div>{formState.errors.email && <div>fqfqfq</div>}</div> */}
       </div>
     </form>
   );

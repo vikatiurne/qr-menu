@@ -4,7 +4,6 @@ import warning from '@/assets/images/Auth/warning.svg';
 import { FieldError, UseFormRegisterReturn } from 'react-hook-form';
 import invisible from '@/assets/images/Auth/invisible.svg';
 
-
 interface GroupFormInputProps {
   registerGroup: UseFormRegisterReturn;
   title: string;
@@ -26,12 +25,13 @@ const GroupFormInput: React.FC<GroupFormInputProps> = ({
 }) => {
   const [visibleData, setVisibleData] = useState<string>(type);
 
+
   return (
     <div className="min-h-[92px] flex  flex-col">
       <h3 className="text-[16px] font-medium mb-2">{title}</h3>
       <div className=" flex relative">
         <input
-          className={`  ${error || isErrorConfirn ? 'border-red-500 ' : 'w-full h-[60px] rounded-md pl-[27px]'} outline-[#15C5CE] border  w-full h-[59px] rounded-md pl-[27px]  `}
+          className={`${error || (isErrorConfirn && 'border-red-500 ')} outline-[#15C5CE] border  w-full h-[59px] rounded-md pl-[18px]  `}
           type={visibleData}
           placeholder={placeholder}
           {...registerGroup}
@@ -40,8 +40,11 @@ const GroupFormInput: React.FC<GroupFormInputProps> = ({
           <button
             type="button"
             disabled={error ? true : false}
-            onClick={() =>
+            onMouseDown={(e) => {
+              e.preventDefault()
               setVisibleData(visibleData === 'text' ? 'password' : 'text')
+            }
+             
             }
           >
             {!error ? (
