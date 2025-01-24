@@ -1,9 +1,14 @@
+import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import LoginIcon from '@/assets/Header/icon.svg';
 import CustomButton from '../UI/CustomButton';
 
 const Header: React.FC = () => {
+  const [language, setLanguage] = useState('UA');
   const location = useLocation();
+
+  const setUkrainianLanguage = () => setLanguage('UA');
+  const setEnglishLanguage = () => setLanguage('EN');
 
   return (
     <header className="w-full h-full flex justify-between">
@@ -15,18 +20,26 @@ const Header: React.FC = () => {
       <div className="flex flex-1 items-end justify-end gap-[18%]">
         <div className="flex flex-1 justify-end items-center gap-1">
           <CustomButton
-            className="w-9 h-9 font-raleway text-lg mobile:font-elMessiri mobile:text-sm mobile:w-7  mobile:h-7  "
-            active
+            className="w-9 h-9 font-raleway text-lg mobile:font-elMessiri mobile:text-sm mobile:w-7  mobile:h-7"
+            onClick={setEnglishLanguage}
             buttonType="language"
-            borderRadius="rounded-full before:rounded-full p-1"
-            whiteBtn
+            active={language === 'EN'}
+            borderRadius={
+              language === 'EN' && 'rounded-full before:rounded-full p-1'
+            }
+            whiteBtn={language === 'EN'}
           >
             EN
           </CustomButton>
           <CustomButton
-            className="w-9 h-9 font-raleway text-lg mobile:font-elMessiri mobile:text-sm mobile:w-7  mobile:h-7  "
-            active={false}
+            className="w-9 h-9 font-raleway text-lg mobile:font-elMessiri mobile:text-sm mobile:w-7  mobile:h-7"
+            onClick={setUkrainianLanguage}
             buttonType="language"
+            active={language === 'UA'}
+            borderRadius={
+              language === 'UA' && 'rounded-full before:rounded-full p-1'
+            }
+            whiteBtn={language === 'UA'}
           >
             UA
           </CustomButton>
