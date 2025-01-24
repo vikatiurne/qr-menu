@@ -31,7 +31,7 @@ const GroupFormInput: React.FC<GroupFormInputProps> = ({
       <h3 className="text-[16px] font-medium ">{title}</h3>
       <div className=" flex relative">
         <input
-          className={`${error || (isErrorConfirn && 'border-red-500 ')} outline-[#15C5CE] border  w-full h-[59px] rounded-md pl-[18px] max-sm:h-[48px] `}
+          className={`${error  && 'border-red-500 '} outline-[#15C5CE] border  w-full h-[59px] rounded-md pl-[18px] max-sm:h-[48px] `}
           type={visibleData}
           placeholder={placeholder}
           {...registerGroup}
