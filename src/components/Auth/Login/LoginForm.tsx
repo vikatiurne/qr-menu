@@ -45,7 +45,7 @@ const LoginForm: React.FC = () => {
   return (
     <form
       onSubmit={handleSubmit(submit, error)}
-      className="max-w-[423px] flex flex-col  sm:gap-10 gap-5  text-basisText min-h-[573px] relative z-50  mt-[138px]"
+      className="max-w-[423px] flex flex-col  sm:gap-10 gap-6  text-basisText relative z-50 max-sm:mt-[153px] mt-[58px] max-sm:pb-5"
     >
       <div>
         <h2 className="font-bold text-[31px]">Sign in to</h2>
@@ -113,9 +113,9 @@ const LoginForm: React.FC = () => {
       </div>
       <MyButton
         disabled={!formState.isValid}
-        className={`border h-[60px] rounded-md button `}
+        className={`border h-[57px] rounded-md button `}
       >
-        Register a new account
+        Login
       </MyButton>
       <div className="text-center ">
         <span className="mr-2 font-medium  text-lightGrey">

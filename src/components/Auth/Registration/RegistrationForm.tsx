@@ -39,7 +39,7 @@ const RegistrationForm: React.FC = () => {
   };
   return (
     <form
-      className="max-w-[423px] flex flex-col sm:gap-10 gap-5 z-50 relative text-basisText min-h-[573px]  "
+      className="max-w-[423px] flex flex-col sm:gap-10 gap-5 z-50 relative text-basisText min-h-[573px] max-sm:mt-[153px] mt-[58px] max-sm:pb-5 "
       onSubmit={handleSubmit(submit, error)}
     >
       <div>
