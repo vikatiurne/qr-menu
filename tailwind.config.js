@@ -6,7 +6,7 @@ export default {
     extend: {
       fontFamily: {
         raleway: ['Raleway', 'sans-serif'],
-        elMassiri: ['El Messiri', 'sans-serif'],
+        elMessiri: ['El Messiri', 'sans-serif'],
       },
       screens: {
         tablet: { max: '1024px' },
@@ -20,6 +20,9 @@ export default {
       textColor: {
         'basisText' : '#4B4B4B' ,
         'lightGrey' : '#8E8E8E'
+      },
+      backgroundImage: {
+        gradientToTop: 'linear-gradient(to top, #15C5CE, #0C677C)',
       },
     },
   },
