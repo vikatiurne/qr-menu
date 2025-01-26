@@ -9,7 +9,7 @@ export default {
         'custom-gradient': 'linear-gradient(298deg, #15C5CE 31.01%, #0B5768 83.54%)',
       },
       fontFamily: {
-        raleway: ['Raleway', 'sans-serif'],
+        raleway: ['Raleway', 'sans-serif'], 
         elMassiri: ['El Messiri', 'sans-serif'],
       },
       screens: {
