@@ -8,10 +8,11 @@ interface ContainerProps {
 
 const Container: React.FC<ContainerProps> = ({
   children,
-  padding = 'px-36 pt-5 pb-0',
+    padding = 'px-36 pt-5 pb-0 max-sm:px-4',
   maxWidth = 'max-w-[1512px]',
 }) => {
   return <div className={`${padding} ${maxWidth} mx-auto`}>{children}</div>;
 };
 
 export default Container;
+  
