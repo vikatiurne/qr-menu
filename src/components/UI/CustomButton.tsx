@@ -1,22 +1,38 @@
+type ButtonType = 'login' | 'language' | 'menuOptions';
+
 interface ButtonProps {
-  onClick: () => void;
   children: React.ReactNode;
+  buttonType: ButtonType;
+  active: boolean;
+  onClick: () => void;
   className: string;
   disabled: boolean;
   whiteBtn: boolean;
   borderRadius: string;
 }
 
-type OptionalButtonProps = Partial<ButtonProps>;
+type OptionalButtonProps = Partial<ButtonProps> & {
+  children: React.ReactNode;
+  buttonType: ButtonType;
+  active: boolean;
+};
 
 const CustomButton: React.FC<OptionalButtonProps> = ({
+  buttonType,
   borderRadius,
+  onClick,
+  active,
   className = '',
   children,
   whiteBtn,
   disabled,
-  onClick,
 }) => {
+  enum currentButtonType {
+    login = 'w-[calc(100%-2.1px)] h-[calc(100%-2.1px)]',
+    language = 'w-[calc(100%-2.3px)] h-[calc(100%-2.1px)]',
+    menuOptions = '',
+  }
+
   const handleClick = () => {
     if (onClick && !disabled) {
       onClick();
@@ -25,13 +41,13 @@ const CustomButton: React.FC<OptionalButtonProps> = ({
 
   return (
     <button
-      className={`relative flex items-center justify-center bg-gradient-to-t from-[#15C5CE] to-[#0C677C] border-none overflow-hidden ${borderRadius} ${className}`}
+      className={`${borderRadius} ${className} ${active && 'bg-gradientToTop'} ${disabled ? 'bg-[#828386]' : 'bg-custom-gradient  hover:bg-customHover-gradient'} relative border-none`}
       onClick={handleClick}
       disabled={disabled}
     >
-      {whiteBtn && (
+      {active && (
         <span
-          className={`absolute inset-0 ${borderRadius} bg-white z-10 w-[calc(100%-2px)] h-[calc(100%-2px)] transform translate-x-[1px] translate-y-[1px]`}
+          className={`${currentButtonType[buttonType]} ${borderRadius} ${whiteBtn && 'bg-white'} absolute inset-0 z-10 translate-x-[.075rem] translate-y-[.075rem]`}
         ></span>
       )}
       <span className="relative z-20">{children}</span>

@@ -1,28 +1,62 @@
+import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import Button from '@/components/UI/Button';
 import LoginIcon from '@/assets/Header/icon.svg';
 import CustomButton from '../UI/CustomButton';
 
 const Header: React.FC = () => {
-  const location = useLocation();
+  const [language, setLanguage] = useState('UA');
+
+  const { pathname } = useLocation();
+
+  const [isAuth, setIsAuth] = useState(
+    pathname.toLocaleLowerCase() === '/login' ||
+      pathname.toLocaleLowerCase() === '/registration'
+  );
+
+  useEffect(() => {
+    setIsAuth(pathname === '/login' || pathname === '/registration');
+  }, [pathname]);
+
+  const setUkrainianLanguage = () => setLanguage('UA');
+  const setEnglishLanguage = () => setLanguage('EN');
 
   return (
-    <header className="w-full h-full flex justify-between">
+    <header
+      className={`w-full h-full flex ${isAuth ? 'items-center pt-[1.375rem]' : ''} justify-between`}
+    >
       <img
-        className="w-[9rem] h-[5.875rem] mobile:w-[4.375rem] mobile:h-[3.125rem]"
+        className={`${isAuth ? 'w-[5.625rem] h-[4.25rem]' : 'w-[9rem] h-[5.875rem]'} mobile:w-[4.375rem] mobile:h-[3.125rem]`}
         src="/logo.svg"
         alt="Logo"
       />
       <div className="flex flex-1 items-end justify-end gap-[18%]">
-        <div className="flex items-center justify-end gap-5">
-          <button className="font-raleway text-lg tablet:w-6 mobile:font-elMassiri mobile:text-sm">
+        <div className="flex flex-1 justify-end items-center gap-1">
+          <CustomButton
+            className="w-9 h-9 font-raleway text-lg mobile:font-elMessiri mobile:text-sm mobile:w-7  mobile:h-7"
+            onClick={setEnglishLanguage}
+            buttonType="language"
+            active={language === 'EN'}
+            borderRadius={
+              language === 'EN' && 'rounded-full before:rounded-full p-1'
+            }
+            whiteBtn={language === 'EN'}
+          >
             EN
-          </button>
-          <button className="font-raleway text-lg tablet:w-6 mobile:font-elMassiri mobile:text-sm">
+          </CustomButton>
+          <CustomButton
+            className="w-9 h-9 font-raleway text-lg mobile:font-elMessiri mobile:text-sm mobile:w-7  mobile:h-7"
+            onClick={setUkrainianLanguage}
+            buttonType="language"
+            active={language === 'UA'}
+            borderRadius={
+              language === 'UA' && 'rounded-full before:rounded-full p-1'
+            }
+            whiteBtn={language === 'UA'}
+          >
             UA
-          </button>
+          </CustomButton>
         </div>
-        {location.pathname === '/' && (
+        {pathname === '/' && (
           <Link to="login">
             <button onClick={() => console.log('Login')}>
               <img
@@ -31,21 +65,11 @@ const Header: React.FC = () => {
                 alt="Login"
               />
             </button>
-            {/* <Button
-              className="w-[9rem] h-[2.75rem] rounded-[.6875rem] p-[.25rem] bg-gradient-to-t from-[#15C5CE] to-[#0C677C] mobile:hidden"
-              onClick={() => console.log('Login')}
-            >
-              <span className="flex items-center justify-center w-full h-full px-[2rem] py-[.625rem] bg-white rounded-[.625rem]">
-                Увійти
-              </span>
-            </Button> */}
-            {/* <Button className="relative text-lg font-raleway w-[7.625rem] h-[2.75rem] bg-white rounded-[.625rem] border-none py-[.625rem] px-8 before:content-[''] before:absolute before:inset-0 before:bg-gradient-to-t before:from-[#15C5CE] before:to-[#0C677C] before:rounded-[.75rem] before:m-[-0.2rem] before:z-[-1]">
-              Увійти
-            </Button> */}
-
             <CustomButton
-              className="w-[7.625rem] h-[2.75rem] mobile:hidden"
-              borderRadius="rounded-[.625rem]"
+              active
+              buttonType="login"
+              className="w-[6.6rem] h-[2.3rem] mobile:hidden"
+              borderRadius="rounded-[.625rem] before:rounded-[.625rem]"
               whiteBtn
               onClick={() => console.log('Login')}
             >
