@@ -5,8 +5,8 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        'gradient-to-top': 'linear-gradient(to top, #15C5CE, #0C677C)',
-        'custom-gradient': 'linear-gradient(298deg, #15C5CE 31.01%, #0B5768 83.54%)',
+        customGradient: 'linear-gradient(335deg, #15C5CE 31.01%, #0B5768 83.54%)',
+        gradientToTop: 'linear-gradient(to top, #15C5CE, #0C677C)',
       },
       fontFamily: {
         raleway: ['Raleway', 'sans-serif'],
@@ -25,9 +25,6 @@ export default {
       textColor: {
         'basisText' : '#4B4B4B' ,
         'lightGrey' : '#8E8E8E'
-      },
-      backgroundImage: {
-        gradientToTop: 'linear-gradient(to top, #15C5CE, #0C677C)',
       },
     },
   },
