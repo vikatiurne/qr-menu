@@ -53,7 +53,6 @@ const Header: React.FC = () => {
             }
             whiteBtn={language === 'UA'}
           >
-            {' '}
             UA
           </CustomButton>
         </div>

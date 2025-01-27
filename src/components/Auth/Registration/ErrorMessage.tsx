@@ -1,7 +1,7 @@
 import React from 'react';
-import Subtract from '@/assets/images/Auth/Subtract.svg';
-import warning from '@/assets/images/Auth/warning.svg';
-import Close from '@/assets/images/Auth/Close.svg';
+import Subtract from '@/assets/auth/svg/Subtract.svg';
+import warning from '@/assets/auth/svg/warning.svg';
+import Close from '@/assets/auth/svg/Close.svg';
 
 interface ErrorMessageProps {
   isErrorEmail: boolean;
