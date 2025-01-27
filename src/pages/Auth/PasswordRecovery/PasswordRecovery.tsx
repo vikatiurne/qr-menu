@@ -1,84 +1,44 @@
-import React from 'react';
-import { Controller, useForm } from 'react-hook-form';
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { data } from 'react-router-dom';
-import logo from '@/assets/images/Auth/Info.png';
-import warning from '@/assets/images/Auth/warning.svg';
-
-interface EmailInputs {
-  email: string;
-}
+import Container from '@/hoc/Container/Container';
+import PasswordRecoveryForm from '@/components/Auth/PasswoRecoveryForm/PasswordRecoveryForm';
+import Group1 from '@/assets/images/Auth/PasswordRecovery/Group1.png';
+import Group2 from '@/assets/images/Auth/PasswordRecovery/Group2.png';
+import Group3 from '@/assets/images/Auth/PasswordRecovery/Group3.png';
+import Group4 from '@/assets/images/Auth/PasswordRecovery/Group4.png';
 
 const PasswordRecovery: React.FC = () => {
-  const {
-    control,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<EmailInputs>({
-    mode: 'onBlur',
-  });
-
-  const onReset = (data: EmailInputs) => {
-    //Отправка письма на email;
-    console.log('Sending password reset email to:', data.email);
-  };
   return (
-    <div className="w-full max-w-[432px] mobile:max-w-[343px] flex flex-col items-center">
-      <img src={logo} alt="Info" className="w-[58px] h-[58px] m-[24px]" />
-      <h1 className="w-full text-[27px] h-[41px] max-w-[224px] font-serif font-bold">
-        Reset Password
-      </h1>
-      <div className="w-full h-[98px] mobile:h-[72px] mt-[32px] flex">
-        <p className="max-w-[390px] ml-[9px] text-[16px] font-medium text-[#959895] text-center">
-          Enter your email address and we’ll send you an email with instructions
-          to reset your password
-        </p>
-      </div>
-      <div className="mt-[32px] w-full max-w-[423px] mobile:max-w-[343px] mobile:mt-[24px] mobile:ml-4">
-        <p className="ml-[3px] mobile:ml-0 font-medium text-[#4B4B4B]">Enter</p>
-        <form onSubmit={handleSubmit(onReset)} className="mt-[9px]">
-          <Controller
-            name="email"
-            control={control}
-            defaultValue=""
-            rules={{
-              pattern: {
-                value: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA0-9]{2,4}$/,
-                message: 'Enter a valid e-mail address!',
-              },
-            }}
-            render={({ field }) => (
-              <div className="relative w-full  h-[4rem]">
-                <input
-                  {...field}
-                  type="email"
-                  placeholder="Enter your email"
-                  className={`w-full h-full pl-[27px] mobile:pl-[18px] border-solid border-[1px]
-                  ${errors.email ? 'border-[#F64C4C]' : 'border-[#15C5CE]'} rounded-md focus:outline-none`}
-                />
-                {errors.email && (
-                  <>
-                    <img
-                      src={warning}
-                      alt="Warning"
-                      className="absolute right-[19px] top-[50%] transform -translate-y-1/2 w-[20px] h-[20px]"
-                    />
+    <div className="overflow-hidden">
+      <Container>
+        <PasswordRecoveryForm />
+      </Container>
 
-                    <p className="text-[#F64C4C] font-normal text-[14px] mt-[6px] pb-[21px] mobile:pb-0 mobile:mt-[2px]">
-                      {errors.email.message}
-                    </p>
-                  </>
-                )}
-              </div>
-            )}
-          />
-          <button
-            type="submit"
-            className={`w-full h-[57px] align-middle bg-gradient-to-b from-[#0C677C] to-[#15C5CE] rounded-md text-white text-base font-medium ${errors.email ? 'mt-[67px]' : 'mt-[32px]'} mobile:mt-[24px]`}
-          >
-            Reset
-          </button>
-        </form>
+      <div
+        className="absolute right-0 top-0 translate-x-1/3 -translate-y-1/3 w-[80vw] h-[80vw] bg-[#98F8CC45] rounded-full 
+        sm:w-[70vw] sm:h-[70vw] sm:translate-x-[45%]
+        lg:w-[1100px] lg:h-[1100px] lg:translate-x-[60%] lg:-translate-y-[30%]
+        xl:w-[1552px] xl:h-[1552px] xl:translate-x-[55%] xl:-translate-y-[35%]
+        transition-all duration-500"
+      >
+        <img
+          src={Group1}
+          alt="Group1"
+          className="absolute top-[620px] left-[147px] mobile:hidden tab:hidden imgBG:w-[150px] imgBG:h-[150px] imgBG:top-[450px] imgBG:left-[140px]"
+        />
+        <img
+          src={Group2}
+          alt="Group2"
+          className="absolute top-[960px] left-[240px] mobile:hidden tab:hidden imgBG:w-[150px] imgBG:h-[150px] imgBG:top-[720px] imgBG:left-[190px]"
+        />
+        <img
+          src={Group3}
+          alt="Group3"
+          className="absolute top-[1180px] left-[597px] mobile:hidden tab:hidden imgBG:w-[75px] imgBG:h-[150px] imgBG:top-[880px] imgBG:left-[460px]"
+        />
+        <img
+          src={Group4}
+          alt="Group4"
+          className="absolute top-[560px] left-[597px] mobile:hidden tab:hidden imgBG:w-[75px] imgBG:h-[150px] imgBG:top-[360px] imgBG:left-[460px]"
+        />
       </div>
     </div>
   );
