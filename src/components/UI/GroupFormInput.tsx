@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import showicon from '@/assets/images/Auth/showicon.svg';
-import warning from '@/assets/images/Auth/warning.svg';
+import showicon from '@/assets/auth/svg/showicon.svg';
+import warning from '@/assets/auth/svg/warning.svg';
+import invisible from '@/assets/auth/svg/invisible.svg';
 import { FieldError, UseFormRegisterReturn } from 'react-hook-form';
-import invisible from '@/assets/images/Auth/invisible.svg';
 
 interface GroupFormInputProps {
   registerGroup: UseFormRegisterReturn;

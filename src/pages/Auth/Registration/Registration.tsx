@@ -1,6 +1,6 @@
 import Container from '@/hoc/Container/Container';
-import bgImage from '@/assets/images/Auth/bg-image.png';
-import GroupFon from '@/assets/images/Auth/GroupFon.png';
+import bgImage from '@/assets/auth/png/bg-image.png';
+import GroupFon from '@/assets/auth/png/GroupFon.png';
 import RegistrationForm from '../../../components/Auth/Registration/RegistrationForm';
 
 const Registration: React.FC = () => {

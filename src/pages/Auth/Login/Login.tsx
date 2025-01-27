@@ -1,7 +1,7 @@
 import Container from '@/hoc/Container/Container';
 import LoginForm from '../../../components/Auth/Login/LoginForm';
-import bgImage from '@/assets/images/Auth/bg-image.png';
-import GroupFon from '@/assets/images/Auth/GroupFon.png';
+import bgImage from '@/assets/auth/png/bg-image.png';
+import GroupFon from '@/assets/auth/png/GroupFon.png';
 
 const Login: React.FC = () => {
   return (
