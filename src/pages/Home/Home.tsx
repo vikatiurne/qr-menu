@@ -8,7 +8,7 @@ import Container from '@/hoc/Container/Container';
 const Home: React.FC = () => {
   return (
     <div>
-      <Container>
+      <Container padding="xl:px-[9rem] xl:pt-[4.5625rem] xl:pb-[6.25rem] px-4 pb-[3.125rem] pt-[3.125rem] sm:px-11 sm:pt-[3.56rem] sm:pb-20">
         <Hero />
         <MenuOptions />
         <CostSavings />
