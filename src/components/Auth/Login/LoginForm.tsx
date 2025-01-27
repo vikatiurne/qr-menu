@@ -3,8 +3,8 @@ import { useDispatch } from 'react-redux';
 import { changeCheckedSign } from '@/pages/Auth/authSlice';
 import { Link } from 'react-router-dom';
 import GroupFormInput from '@/components/UI/GroupFormInput';
-import MyButton from '@/components/UI/MyButton';
 import { useAppSelector } from '@/hooks/useAppSelector';
+import CustomButton from '@/components/UI/CustomButton';
 
 export type FormData = {
   email: string;
@@ -12,18 +12,18 @@ export type FormData = {
 };
 
 const LoginForm: React.FC = () => {
-  const { register, handleSubmit, reset, formState , clearErrors} =
+  const { register, handleSubmit, reset, formState, clearErrors } =
     useForm<FormData>({
-      mode: 'onBlur'
+      mode: 'onBlur',
     });
   const { chekedSignRemember } = useAppSelector((state) => state.auth);
   const dispatch = useDispatch();
   // const fakeData = { email: 'fakeEmail@i.ua', password: 'Test123456' };
-  
+
   const submit: SubmitHandler<FormData> = (data) => {
     const newSubmitData = { ...data, chekedSignRemember };
     console.log(newSubmitData);
-    reset()
+    reset();
     dispatch(changeCheckedSign(false));
     // if (
     //   data.email === fakeData.email &&
@@ -39,7 +39,7 @@ const LoginForm: React.FC = () => {
     // }
   };
   const error: SubmitErrorHandler<FormData> = (data) => {
-    console.log(data)
+    console.log(data);
   };
 
   return (
@@ -64,7 +64,7 @@ const LoginForm: React.FC = () => {
               value: /.+@.+\..+/i,
               message: 'Enter a valid e-mail address!',
             },
-            onChange: () => formState.errors.email && clearErrors('email')
+            onChange: () => formState.errors.email && clearErrors('email'),
           }),
         }}
       />
@@ -84,7 +84,8 @@ const LoginForm: React.FC = () => {
               message:
                 'Enter a secure password: At least 8 characters long, containing uppercase and lowercase letters and numbers!',
             },
-            onChange: () => formState.errors.password && clearErrors('password')
+            onChange: () =>
+              formState.errors.password && clearErrors('password'),
           }),
         }}
       />
@@ -111,12 +112,16 @@ const LoginForm: React.FC = () => {
           Forgot Password ?
         </Link>
       </div>
-      <MyButton
+      <CustomButton
+        active={formState.isValid}
+        buttonType="login"
+        className=" h-[57px] button border"
+        borderRadius="rounded-md"
+        whiteBtn={false}
         disabled={!formState.isValid}
-        className={`border h-[57px] rounded-md button `}
       >
-        Login
-      </MyButton>
+        <span className="text-lg font-poppins text-white ">Login</span>
+      </CustomButton>
       <div className="text-center ">
         <span className="mr-2 font-medium  text-lightGrey">
           Don’t have an Account ?

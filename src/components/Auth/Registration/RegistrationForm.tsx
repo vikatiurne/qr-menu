@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { SubmitErrorHandler, SubmitHandler, useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import ErrorMessage from './ErrorMessage';
-import MyButton from '@/components/UI/MyButton';
+import CustomButton from '@/components/UI/CustomButton';
 
 export type FormData = {
   email: string;
@@ -14,14 +14,14 @@ export type FormData = {
 
 const RegistrationForm: React.FC = () => {
   const { register, handleSubmit, reset, getValues, formState, clearErrors } =
-    useForm<FormData>({mode: 'onBlur'});
+    useForm<FormData>({ mode: 'onBlur' });
   const [isErrorEmail, setIsErrorEmail] = useState<boolean>(false);
 
   // const fakeEmail = 'fakeEmail@i.ua';
 
   const submit: SubmitHandler<FormData> = (data) => {
-    console.log(data)
-    reset()
+    console.log(data);
+    reset();
     // if (data.confirmPassword === data.password && data.email != fakeEmail) {
     //   console.log(data);
     //   setIsErrorEmail(false);
@@ -34,7 +34,7 @@ const RegistrationForm: React.FC = () => {
     // }
   };
   const error: SubmitErrorHandler<FormData> = (data) => {
-    console.log(data)
+    console.log(data);
     // setIsErrorEmail(false);
   };
   return (
@@ -58,7 +58,7 @@ const RegistrationForm: React.FC = () => {
               value: /.+@.+\..+/i,
               message: 'Enter a valid e-mail address!',
             },
-            onChange: () => formState.errors.email && clearErrors('email')
+            onChange: () => formState.errors.email && clearErrors('email'),
           }),
         }}
       />
@@ -70,10 +70,10 @@ const RegistrationForm: React.FC = () => {
         registerGroup={{
           ...register('nameRestaurant', {
             required: 'Please fill in all required fields. ',
-            onChange: () => formState.errors.nameRestaurant && clearErrors('nameRestaurant')
+            onChange: () =>
+              formState.errors.nameRestaurant && clearErrors('nameRestaurant'),
           }),
         }}
-        
       />
       <GroupFormInput
         title={'Password'}
@@ -90,7 +90,8 @@ const RegistrationForm: React.FC = () => {
               message:
                 'Enter a secure password: At least 8 characters long, containing uppercase and lowercase letters and numbers!',
             },
-            onChange: () => formState.errors.password && clearErrors('password')
+            onChange: () =>
+              formState.errors.password && clearErrors('password'),
           }),
         }}
       />
@@ -113,18 +114,28 @@ const RegistrationForm: React.FC = () => {
               const { password } = getValues();
               return password === value || 'Passwords do not match';
             },
-            onChange: () => formState.errors.confirmPassword && clearErrors('confirmPassword')
+            onChange: () =>
+              formState.errors.confirmPassword &&
+              clearErrors('confirmPassword'),
           }),
         }}
       />
-      <ErrorMessage formState={formState} isErrorEmail={isErrorEmail} setIsErrorEmail={setIsErrorEmail} />
+      <ErrorMessage
+        formState={formState}
+        isErrorEmail={isErrorEmail}
+        setIsErrorEmail={setIsErrorEmail}
+      />
 
-      <MyButton
-        className="border h-[60px] rounded-md button text-white "
+      <CustomButton
+        active={formState.isValid}
+        buttonType="login"
+        className=" h-[60px] button border"
+        borderRadius="rounded-md"
+        whiteBtn={false}
         disabled={!formState.isValid}
       >
-        Register a new account
-      </MyButton>
+        <span className="font-poppins text-white ">Register a new account</span>
+      </CustomButton>
       <div className="text-center ">
         <span className="mr-2 font-medium text-lightGrey">
           Already have an Account ?

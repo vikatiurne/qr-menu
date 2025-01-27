@@ -52,7 +52,7 @@ const Header: React.FC = () => {
               language === 'UA' && 'rounded-full before:rounded-full p-1'
             }
             whiteBtn={language === 'UA'}
-          >
+          >y
             UA
           </CustomButton>
         </div>

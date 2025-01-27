@@ -41,7 +41,7 @@ const CustomButton: React.FC<OptionalButtonProps> = ({
 
   return (
     <button
-      className={`${borderRadius} ${className} ${active && 'bg-gradientToTop'} relative border-none`}
+      className={`${borderRadius} ${className} ${active && 'bg-gradientToTop'} ${disabled ? 'bg-[#828386]' : 'bg-custom-gradient  hover:bg-customHover-gradient'} relative border-none`}
       onClick={handleClick}
       disabled={disabled}
     >

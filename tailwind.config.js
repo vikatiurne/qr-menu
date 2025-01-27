@@ -7,6 +7,7 @@ export default {
       fontFamily: {
         raleway: ['Raleway', 'sans-serif'],
         elMessiri: ['El Messiri', 'sans-serif'],
+        poppins: ['Poppins', 'sans-serif'],
       },
       screens: {
         tablet: { max: '1024px' },
