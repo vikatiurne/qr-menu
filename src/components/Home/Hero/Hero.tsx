@@ -10,7 +10,7 @@ const Hero: React.FC = () => {
         <div className="grid grid-cols-1 gap-[24px] xl:grid-cols-2">
           {/* Part 1 */}
           <div className="">
-            <p className="font-bold lg:text-[52px] lg:leading-[1.1] text-4xl leading-[1] mobile:text-[28px] mobile:leading-4.5 ">
+            <p className="font-bold lg:text-[52px] text-4xl mobile:text-[28px] leading-[1.75rem] lg:leading-10">
               Розумні
               <span className="bg-gradientToTop text-transparent bg-clip-text">
                 {' '}
@@ -58,7 +58,7 @@ const Hero: React.FC = () => {
           </div>
         </div>
       </div>
-      <p className="mt-1 text-2xl lg:text-[40px] mobile:text-[18px] font-bold w-full mx-auto h-[max-content]">
+      <p className="mt-1 text-2xl lg:text-[40px] mobile:text-[18px] font-bold w-full mx-auto h-[max-content] leading-4 lg:leading-10">
         Velori перетворює меню на{' '}
         <span className="bg-gradientToTop text-transparent bg-clip-text">
           QR-код
