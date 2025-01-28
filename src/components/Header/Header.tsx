@@ -21,7 +21,7 @@ const Header: React.FC = () => {
   const setEnglishLanguage = () => setLanguage('EN');
 
   return (
-    <header
+    <header id='Header'
       className={`w-full h-full flex ${isAuth ? 'items-center pt-[1.375rem]' : ''} justify-between`}
     >
       <img
