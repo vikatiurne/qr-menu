@@ -4,6 +4,10 @@ export default {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
+      backgroundImage: {
+        customGradient: 'linear-gradient(335deg, #15C5CE 31.01%, #0B5768 83.54%)',
+        gradientToTop: 'linear-gradient(to top, #15C5CE, #0C677C)',
+      },
       fontFamily: {
         raleway: ['Raleway', 'sans-serif'],
         elMessiri: ['El Messiri', 'sans-serif'],
@@ -21,9 +25,6 @@ export default {
       textColor: {
         'basisText' : '#4B4B4B' ,
         'lightGrey' : '#8E8E8E'
-      },
-      backgroundImage: {
-        gradientToTop: 'linear-gradient(to top, #15C5CE, #0C677C)',
       },
     },
   },
