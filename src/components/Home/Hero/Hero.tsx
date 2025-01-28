@@ -10,7 +10,7 @@ const Hero: React.FC = () => {
         <div className="grid grid-cols-1 gap-[24px] xl:grid-cols-2">
           {/* Part 1 */}
           <div className="">
-            <p className="font-bold lg:text-[52px] lg:leading-[1.1] text-4xl leading-[1] mobile:text-[28px] mobile:leading-[1]">
+            <p className="font-bold lg:text-[52px] lg:leading-[1.1] text-4xl leading-[1] mobile:text-[28px] mobile:leading-4.5 ">
               Розумні
               <span className="bg-gradientToTop text-transparent bg-clip-text">
                 {' '}
