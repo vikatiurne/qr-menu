@@ -6,6 +6,7 @@ import PasswordRecoveryForm from '@/components/Auth/PasswoRecoveryForm/PasswordR
 // import Group4 from '@/assets/images/Auth/PasswordRecovery/Group4.png';
 import dishes from '@/assets/images/Auth/PasswordRecovery/dishes.png';
 import bgImage from '@/assets/images/Auth/PasswordRecovery/bg-image.png';
+import mobileBg from '@/assets/images/Auth/PasswordRecovery/mobile-bg.png';
 
 const PasswordRecovery: React.FC = () => {
   return (
@@ -14,11 +15,20 @@ const PasswordRecovery: React.FC = () => {
         <PasswordRecoveryForm />
       </Container>
       <div className="absolute top-0 right-0 max-w-[620px] max-h-[670px] max-sm:w-[265px] max-sm:h-[300px] ">
-        <img src={bgImage} className=" w-full h-full" alt="bg-imge" />
+        <img
+          src={bgImage}
+          className=" w-full h-full mobile:hidden tab:hidden"
+          alt="bg-imge"
+        />
         <img
           src={dishes}
           alt="Group1"
           className="absolute top-8 right-0 mobile:hidden tab:hidden "
+        />
+        <img
+          src={mobileBg}
+          alt="mobileBG-image"
+          className="hidden mobile:block tab:block w-full h-full"
         />
 
         {/* <div

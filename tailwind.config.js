@@ -11,7 +11,7 @@ module.exports = {
       screens: {
         mobile: { min: '375px', max: '768px' },
         tab: { min: '769px', max: '1023px' },
-        imgBG: { min: '1024px', max: '1279px' },
+        imgBG: { min: '1023px', max: '1279px' },
       },
     },
   },
