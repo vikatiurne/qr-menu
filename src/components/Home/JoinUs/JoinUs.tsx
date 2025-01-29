@@ -17,7 +17,7 @@ const JoinUs: React.FC = () => {
   const [isErrorEmail, setIsErrorEmail] = useState<boolean>(false);
 
   return (
-    <div className="grid xl:grid-cols-2 grid-cols-1 font-elMessiri text-center text-[#2B2A34] gap-[24px]">
+    <div className="lg:min-h-[498px] grid xl:grid-cols-2 grid-cols-1 font-elMessiri text-center text-[#2B2A34] gap-[24px]">
       <div className="">
         <p className="text-2xl xl:text-[40px] mobile:text-[18px] font-bold w-full mx-auto h-[max-content] leading-4 xl:leading-10">
           Приєднуйтесь до
@@ -257,7 +257,7 @@ const JoinUs: React.FC = () => {
                 }}
               ></GroupFormInput>
             </div>
-            <div className="w-full ">
+            <div className="w-full mt-[18px]">
               <CustomButton
                 className="w-full h-[54px] text-[22px] font-elMessiri text-center font-bold leading-[29.7px] uppercase"
                 borderRadius="rounded-lg"
@@ -272,8 +272,8 @@ const JoinUs: React.FC = () => {
           </div>
         </form>
       </div>
-      <div className=" flex justify-center items-center object-contain">
-        <img className="mobile:hidden" src={JoinUsPic} alt="JoinUsPicRgt" />
+      <div className="flex justify-center items-center object-contain">
+        <img className="hidden lg:block max-h-[498px]" src={JoinUsPic} alt="JoinUsPicRgt" />
       </div>
     </div>
   );
