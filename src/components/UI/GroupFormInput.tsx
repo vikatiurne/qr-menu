@@ -13,6 +13,7 @@ interface GroupFormInputProps {
   placeholder: string;
   groupType?: GroupType; // Необов’язковий проп
   activeIconVisible?: boolean;
+  leftTypeIcon?: React.ReactNode;
   isErrorConfirn?: boolean;
   error?: FieldError | undefined;
 }
@@ -24,6 +25,7 @@ const GroupFormInput: React.FC<GroupFormInputProps> = ({
   groupType = 'auth', // Значення за замовчуванням
   isErrorConfirn,
   activeIconVisible,
+  leftTypeIcon,
   registerGroup,
   error,
 }) => {
@@ -31,9 +33,9 @@ const GroupFormInput: React.FC<GroupFormInputProps> = ({
 
   // Класи для div та input залежно від groupType
   const divClassName =
-    groupType === 'auth' 
-    ? 'min-h-[92px] max-sm:min-h-[80px] flex  flex-col gap-2' 
-    : '';
+    groupType === 'auth'
+      ? 'min-h-[92px] max-sm:min-h-[80px] flex  flex-col gap-2'
+      : '';
   const inputClassName =
     groupType === 'auth'
       ? 'outline-[#15C5CE] border  w-full h-[59px] rounded-md pl-[18px] max-sm:h-[48px]'
@@ -49,6 +51,11 @@ const GroupFormInput: React.FC<GroupFormInputProps> = ({
           placeholder={placeholder}
           {...registerGroup}
         />
+        {leftTypeIcon && (
+          <span className="absolute left-[14px] top-1/2 -translate-y-1/2 h-5 w-5">
+            {leftTypeIcon} {/* Вставляємо переданий SVG-код */}
+          </span>
+        )}
         {activeIconVisible && (
           <button
             type="button"
@@ -65,12 +72,20 @@ const GroupFormInput: React.FC<GroupFormInputProps> = ({
                 alt="icon"
               />
             ) : (
-              <img className="absolute right-5 top-1/2 -translate-y-1/2" src={warning} alt="icon" />
+              <img
+                className="absolute right-5 top-1/2 -translate-y-1/2"
+                src={warning}
+                alt="icon"
+              />
             )}
           </button>
         )}
       </div>
-      {error && <span className="text-[14px] mt-[6px] text-[#F64C4C]">{error.message}</span>}
+      {error && (
+        <span className="text-[14px] mt-[6px] text-[#F64C4C]">
+          {error.message}
+        </span>
+      )}
     </div>
   );
 };

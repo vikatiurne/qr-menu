@@ -41,7 +41,7 @@ const CustomButton: React.FC<OptionalButtonProps> = ({
 
   return (
     <button
-      className={`${borderRadius} ${className} ${active && 'bg-gradientToTop'} ${disabled ? 'bg-[#828386]' : 'bg-custom-gradient  hover:bg-customHover-gradient'} relative border-none`}
+      className={`${borderRadius} ${className} ${active && 'bg-gradientToTop'} ${disabled ? 'bg-[#a19fa1]' : 'bg-custom-gradient  hover:bg-customHover-gradient'} relative border-none`}
       onClick={handleClick}
       disabled={disabled}
     >
@@ -50,7 +50,7 @@ const CustomButton: React.FC<OptionalButtonProps> = ({
           className={`${currentButtonType[buttonType]} ${borderRadius} ${whiteBtn && 'bg-white'} absolute inset-0 z-10 translate-x-[.075rem] translate-y-[.075rem]`}
         ></span>
       )}
-      <span className="relative z-20">{children}</span>
+      <span className={`${active ? "text-white" : "text-[#616165]"}`}>{children}</span>
     </button>
   );
 };
