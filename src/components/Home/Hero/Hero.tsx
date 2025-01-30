@@ -5,7 +5,7 @@ import HeroCardImgRt from '@/assets/Home/cardImgRt.png';
 
 const Hero: React.FC = () => {
   return (
-    <div className="grid grid-rows-2 font-elMessiri text-center text-[#2B2A34]">
+    <div className="bg-red-200 font-elMessiri text-center text-[#2B2A34]">
       <div className="container mx-auto min-w-[164px] xl:mb-[100px] sm:mb-[4em] mb-[3em] mobile:mb-[50px]">
         <div className="grid grid-cols-1 gap-[24px] xl:grid-cols-2">
           {/* Part 1 */}
@@ -58,7 +58,7 @@ const Hero: React.FC = () => {
           </div>
         </div>
       </div>
-      <p className="mt-1 text-2xl lg:text-[40px] mobile:text-[18px] font-bold w-full mx-auto h-[max-content]">
+      <p className="bg-red-300 mt-1 text-2xl lg:text-[40px] mobile:text-[18px] font-bold w-full mx-auto h-[max-content]">
         Velori перетворює меню на{' '}
         <span className="bg-gradientToTop text-transparent bg-clip-text">
           QR-код
