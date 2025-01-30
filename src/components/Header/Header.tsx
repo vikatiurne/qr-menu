@@ -21,7 +21,8 @@ const Header: React.FC = () => {
   const setEnglishLanguage = () => setLanguage('EN');
 
   return (
-    <header id='Header'
+    <header
+      id="Header"
       className={`w-full h-full flex ${isAuth ? 'items-center pt-[1.375rem]' : ''} justify-between`}
     >
       <img
@@ -60,7 +61,7 @@ const Header: React.FC = () => {
           <Link to="login">
             <button onClick={() => console.log('Login')}>
               <img
-                className="w-8 h-8 hidden mobile:inline-block"
+                className="w-8 h-8 sm:hidden inline-block"
                 src={LoginIcon}
                 alt="Login"
               />
@@ -68,7 +69,7 @@ const Header: React.FC = () => {
             <CustomButton
               active
               buttonType="login"
-              className="w-[6.6rem] h-[2.3rem] mobile:hidden"
+              className="w-[6.6rem] h-[2.3rem] hidden sm:inline-block"
               borderRadius="rounded-[.625rem] before:rounded-[.625rem]"
               whiteBtn
               onClick={() => console.log('Login')}
