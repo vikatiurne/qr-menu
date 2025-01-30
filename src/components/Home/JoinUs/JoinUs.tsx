@@ -27,7 +27,7 @@ const JoinUs: React.FC = () => {
           </span>
         </p>
         <form className="mx-auto mt-[36px] h-auto container">
-          <div className="font-raleway font-[18px]  leading-[1.25] grid grid-cols-1 gap-[34px] text-[#202328]  xl:h-[310px]">
+          <div className="font-raleway font-[18px] leading-[1.25] grid grid-cols-1 text-[#202328]  xl:h-[310px]">
             {/* Email Input */}
             <div className="relative mt-2">
               <div className="relative ">
@@ -92,7 +92,6 @@ const JoinUs: React.FC = () => {
                     }),
                   }}
                 />
-                <span className="absolute inset-y-[15px] left-[14px] items-center"></span>
               </div>
             </div>
 
@@ -184,12 +183,12 @@ const JoinUs: React.FC = () => {
                 registerGroup={{
                   ...register('password', {
                     required:
-                      'Enter a secure password: At least 8 characters long, containing uppercase and lowercase letters and numbers!',
+                      'Введіть надійний пароль: не менше 8 символів, які містять великі та малі літери та цифри!',
                     pattern: {
                       value:
                         /(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{8,}/,
                       message:
-                        'Enter a secure password: At least 8 characters long, containing uppercase and lowercase letters and numbers!',
+                        'Введіть надійний пароль: не менше 8 символів, які містять великі та малі літери та цифри!',
                     },
                     onChange: () =>
                       formState.errors.password && clearErrors('password'),
@@ -257,7 +256,7 @@ const JoinUs: React.FC = () => {
                 }}
               ></GroupFormInput>
             </div>
-            <div className="w-full mt-[18px]">
+            <div className="w-full mt-[16px]">
               <CustomButton
                 className="w-full h-[54px] text-[22px] font-elMessiri text-center font-bold leading-[29.7px] uppercase"
                 borderRadius="rounded-lg"
@@ -273,8 +272,13 @@ const JoinUs: React.FC = () => {
         </form>
       </div>
       <div className="flex justify-center items-center object-contain">
-        <img className="hidden lg:block max-h-[498px]" src={JoinUsPic} alt="JoinUsPicRgt" />
+        <img
+          className="hidden lg:block max-h-[498px]"
+          src={JoinUsPic}
+          alt="JoinUsPicRgt"
+        />
       </div>
+
     </div>
   );
 };
