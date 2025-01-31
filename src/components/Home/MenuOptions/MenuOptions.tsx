@@ -9,7 +9,6 @@ import CustomButton from '@/components/UI/CustomButton';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { spawn } from 'child_process';
 
 interface SliderProps {
   image: string;
@@ -174,8 +173,10 @@ const MenuOptions: React.FC = () => {
   const settings = {
     onReInit: () => setCurrentSlide(slider1?.innerSlider.state.currentSlide),
     lazyLoad: true,
-    asNavFor: '.slider-nav ',
-    // focusOnSelect: true,
+    asNavFor: '.slider ',
+    // adaptiveHeight: true
+    // slidesToShow: 1    // focusOnSelect: true,
+
   };
 
   const [nav1, setNav1] = useState(null);
@@ -186,11 +187,13 @@ const MenuOptions: React.FC = () => {
     setNav1(slider1);
   }, [slider1]);
   return (
-    <div className="py-0 pb-4 sm:pt-[100px] sm:pb-[50px] font-elMessiri">
+    <div className="py-0 pb-4 sm:pb-[50px] font-elMessiri ">
       <Slider
         {...settings}
         asNavFor={nav1}
         ref={(slider) => setSlider1(slider)}
+        // className={'max-w-[100vw] container'}
+        // className='max-w-[100%] '
       >
         {sliderData.map((item, index) => (
           <div
@@ -202,7 +205,7 @@ const MenuOptions: React.FC = () => {
             <img
               src={item.image}
               alt="slide-image"
-              className="min-h-[200px] sm:max-h-[504px] object-cover rounded-[10px] sm:rounded-none"
+              className="min-h-[200px] sm:max-h-[504px]  object-cover rounded-[10px] sm:rounded-none"
             />
             <h2 className="hidden sm:block  absolute z-50 top-6 left-6 tablet:text-[25px] text-[40px]  text-white font-semibold  ">
               {item.title()}

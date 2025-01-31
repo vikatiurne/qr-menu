@@ -7,8 +7,8 @@ import Container from '@/hoc/Container/Container';
 
 const Home: React.FC = () => {
   return (
-    <div className="flex flex-col min-h-screen scroll-smooth">
-      <Container padding="flex-grow xl:px-[9rem] xl:pt-[4.5625rem] xl:pb-[6.25rem] px-4 pb-[3.125rem] pt-[3.125rem] sm:px-11 sm:pt-[3.56rem] sm:pb-20">
+    <div className=" min-h-screen scroll-smooth">
+      <Container padding=" flex-grow xl:px-[9rem] xl:pt-[4.5625rem] xl:pb-[6.25rem] px-4 pb-[3.125rem] pt-[3.125rem] sm:px-11 sm:pt-[3.56rem] sm:pb-20">
         <Hero />
         <MenuOptions />
         <CostSavings />
