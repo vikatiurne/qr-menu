@@ -9,7 +9,7 @@ const Login: React.FC = () => {
       <Container>
         <LoginForm />
       </Container>
-      <div className="absolute top-0 right-0 max-w-[620px] max-h-[670px] max-sm:w-[265px] max-sm:h-[300px] ">
+      <div className="absolute top-0 right-0 max-w-[620px] max-h-[670px] max-sm:w-[265px] max-sm:h-[300px]  ">
           <img src={bgImage} className=" w-full h-full" alt="bg-imge" />
           <img
             src={GroupFon}
