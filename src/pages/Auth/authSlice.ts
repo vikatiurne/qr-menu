@@ -1,18 +1,15 @@
-
-
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-
 
 type isSignType = 'in' | 'up' | 'reset';
 
 export interface SignState {
   isSign: isSignType;
-  chekedSignRemember: boolean
+  chekedSignRemember: boolean;
 }
 
 const initialState: SignState = {
   isSign: 'in',
-  chekedSignRemember: false
+  chekedSignRemember: false,
 };
 
 export const authSlice = createSlice({
@@ -28,5 +25,5 @@ export const authSlice = createSlice({
   },
 });
 
-export const { setSign , changeCheckedSign} = authSlice.actions;
+export const { setSign, changeCheckedSign } = authSlice.actions;
 export default authSlice.reducer;
