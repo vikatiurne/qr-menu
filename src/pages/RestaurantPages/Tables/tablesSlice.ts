@@ -1,8 +1,14 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+interface Order {
+    position: string;
+    price: number;
+    quantity: number;
+  }
+
 interface Table {
   id: number;
-  order: React.ReactNode; 
+  order: Order[]; 
   status: 'free' | 'serviced'; 
   call: boolean; 
 }
@@ -22,7 +28,7 @@ const tablesSlice = createSlice({
     initializeTables(state, action: PayloadAction<number>) {
       state.tables = Array.from({ length: action.payload }, (_, index) => ({
         id: index + 1,
-        order: null,
+        order: [],
         status: 'free',
         call: false,
       }));
