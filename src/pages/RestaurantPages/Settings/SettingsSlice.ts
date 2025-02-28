@@ -1,6 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
+import React from 'react';
 
-export interface SettingsState {
+
+
+interface SettingsState {
   qtyTables: number;
 }
 
@@ -13,6 +16,5 @@ export const settingsSlice = createSlice({
   initialState,
   reducers: {},
 });
-
 
 export default settingsSlice.reducer;
