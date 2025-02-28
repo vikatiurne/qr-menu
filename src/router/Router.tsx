@@ -1,7 +1,11 @@
 import { Route, Routes } from 'react-router-dom';
 import { lazy } from 'react';
 
-import Dashboard from '@/hoc/loyouts/Dashboard/Dashboard';
+const Dashboard = lazy(() => import('@/hoc/loyouts/Dashboard/Dashboard'));
+const ProtectedRoute = lazy(() => import('./ProtectedRoute '));
+const RestaurantHome = lazy(
+  () => import('@/pages/RestaurantHome/RestaurantHome')
+);
 
 const Menu = lazy(() => import('@/pages/Menu/Menu'));
 const Home = lazy(() => import('@/pages/Home/Home'));
@@ -25,9 +29,20 @@ const Router = () => {
         <Route path="/registration" element={<Registration />} />
         <Route path="/forgot-password" element={<PasswordRecovery />} />
         <Route path="/recovery-password" element={<NewPassword />} />
-        <Route path="menu" element={<Menu />} />
-        <Route path="tables" element={<Tables />} />
-        <Route path="support" element={<Support />} />
+        <Route
+          path="/restaurant"
+          element={<ProtectedRoute element={<RestaurantHome />} />}
+        >
+          <Route path="menu" element={<ProtectedRoute element={<Menu />} />} />
+          <Route
+            path="tables"
+            element={<ProtectedRoute element={<Tables />} />}
+          />
+          <Route
+            path="support"
+            element={<ProtectedRoute element={<Support />} />}
+          />
+        </Route>
       </Route>
     </Routes>
   );

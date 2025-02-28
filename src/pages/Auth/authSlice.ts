@@ -5,11 +5,13 @@ type isSignType = 'in' | 'up' | 'reset';
 export interface SignState {
   isSign: isSignType;
   chekedSignRemember: boolean;
+  isAuth: boolean;
 }
 
 const initialState: SignState = {
   isSign: 'in',
   chekedSignRemember: false,
+  isAuth: true,//true для разработки, нужно будет поменять на false 
 };
 
 export const authSlice = createSlice({
