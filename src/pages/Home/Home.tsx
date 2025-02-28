@@ -1,3 +1,4 @@
+import React from 'react';
 import CostSavings from '@/components/Home/CostSavings/CostSavings';
 import Footer from '@/components/Home/Footer/Footer';
 import Hero from '@/components/Home/Hero/Hero';
