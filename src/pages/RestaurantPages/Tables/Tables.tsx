@@ -1,14 +1,5 @@
-<<<<<<< HEAD
-
-const Tables: React.FC = () => {
-  return (
-    <div>Tables</div>
-  )
-}
-
-export default Tables
-=======
 import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../../app/store';
 import { initializeTables } from './tablesSlice';
 import { useEffect, useState } from 'react';
 import infoIcon from '@/assets/Tables/svg/info.svg';
@@ -24,7 +15,7 @@ const Tables: React.FC = () => {
   const [isActiveStatus, setIsActiveStatus] = useState(0);
 
   const dispatch = useDispatch();
-  const { tables } = useSelector((state) => state.tables);
+  const { tables } = useSelector((state: RootState) => state.tables);
 
   const styleSizeCell = 'w-[170px] text-center ';
 
@@ -73,7 +64,10 @@ const Tables: React.FC = () => {
                 />
                 {isActiveStatus === item.id && (
                   <Popup className=" bg-white absolute rounded-md left-0 w-full z-50">
-                    <div className='flex flex-col py-2  w-[90%] gap-2' onMouseLeave={() => setIsActiveStatus(0)}>
+                    <div
+                      className="flex flex-col py-2  w-[90%] gap-2"
+                      onMouseLeave={() => setIsActiveStatus(0)}
+                    >
                       <span className="hover:text-gray-600  transition ">
                         {item.status}
                       </span>
@@ -108,4 +102,3 @@ const Tables: React.FC = () => {
 };
 
 export default Tables;
->>>>>>> Sidebar
