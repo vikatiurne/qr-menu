@@ -3,7 +3,7 @@ import { Suspense } from 'react';
 import Container from '@/hoc/Container/Container';
 import Header from '@/components/Header/Header';
 
-const Dashboard = () => {
+const Dashboard: React.FC = () => {
   return (
     <div>
       <Suspense>

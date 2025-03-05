@@ -1,3 +1,4 @@
+import React from "react";
 
 
 const Support: React.FC  = () => {

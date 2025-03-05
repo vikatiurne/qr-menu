@@ -1,12 +1,8 @@
 import { Route, Routes } from 'react-router-dom';
 import { lazy } from 'react';
 
-import Dashboard from '@/hoc/loyouts/Dashboard/Dashboard';
-
-const Menu = lazy(() => import('@/pages/Menu/Menu'));
+const Dashboard = lazy(() => import('@/hoc/loyouts/Dashboard/Dashboard'));
 const Home = lazy(() => import('@/pages/Home/Home'));
-const Tables = lazy(() => import('@/pages/Tables/Tables'));
-const Support = lazy(() => import('@/pages/Support/Support'));
 const Login = lazy(() => import('@/pages/Auth/Login/Login'));
 const Registration = lazy(
   () => import('@/pages/Auth/Registration/Registration')
@@ -15,6 +11,13 @@ const PasswordRecovery = lazy(
   () => import('@/pages/Auth/PasswordRecovery/PasswordRecovery')
 );
 const NewPassword = lazy(() => import('@/pages/Auth/NewPassword/NewPassword'));
+const ProtectedRoute = lazy(() => import('@/router/ProtectedRoute '));
+const RestaurantHome = lazy(
+  () => import('@/pages/RestaurantHome/RestaurantHome')
+);
+const RestaurantPages = lazy(
+  () => import('@/hoc/loyouts/RestaurantPages/RestaurantPages')
+);
 
 const Router = () => {
   return (
@@ -25,9 +28,11 @@ const Router = () => {
         <Route path="/registration" element={<Registration />} />
         <Route path="/forgot-password" element={<PasswordRecovery />} />
         <Route path="/recovery-password" element={<NewPassword />} />
-        <Route path="menu" element={<Menu />} />
-        <Route path="tables" element={<Tables />} />
-        <Route path="support" element={<Support />} />
+        <Route
+          path="/restaurant"
+          element={<ProtectedRoute element={<RestaurantHome />} />}
+        />
+        <Route path="/restaurant/*" element={<RestaurantPages />} />
       </Route>
     </Routes>
   );
