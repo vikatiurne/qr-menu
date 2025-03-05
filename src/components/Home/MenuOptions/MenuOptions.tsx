@@ -41,8 +41,8 @@ const sliderData: SliderProps[] = [
             <p>швидке оновлення.</p>
           </div>
           <div className="sm:hidden font-semibold">
-            Безконтактне <span className={slideTextSpanStyle}>онлайн-меню</span>{' '},
-            швидке оновлення.
+            Безконтактне <span className={slideTextSpanStyle}>онлайн-меню</span>{' '}
+            , швидке оновлення.
           </div>
         </div>
       );
@@ -119,7 +119,8 @@ const sliderData: SliderProps[] = [
         <div>
           <div className="leading-[16px] sm:leading-[40px] hidden sm:block">
             <p>
-              Розумний офіціант <span className={slideTextSpanStyle}> відповість</span>
+              Розумний офіціант{' '}
+              <span className={slideTextSpanStyle}> відповість</span>
               <span className={slideTextSpanStyle}>
                 <br /> на всі питання
               </span>
@@ -154,15 +155,18 @@ const sliderData: SliderProps[] = [
       return (
         <div>
           <div className="leading-[16px] sm:leading-[40px] hidden sm:block">
-          <p>
-            <span className={slideTextSpanStyle}>Автоматичне приготування</span>
-          </p>
+            <p>
+              <span className={slideTextSpanStyle}>
+                Автоматичне приготування
+              </span>
+            </p>
 
-          <p>страви, які замовляли раніше</p>
-        </div>
-        <div className="sm:hidden font-semibold text-[16px]">
-        <span className={slideTextSpanStyle}>Автоматичне приготування</span> страви, які замовляли раніше
-        </div>
+            <p>страви, які замовляли раніше</p>
+          </div>
+          <div className="sm:hidden font-semibold text-[16px]">
+            <span className={slideTextSpanStyle}>Автоматичне приготування</span>{' '}
+            страви, які замовляли раніше
+          </div>
         </div>
       );
     },
@@ -176,7 +180,6 @@ const MenuOptions: React.FC = () => {
     asNavFor: '.slider ',
     // adaptiveHeight: true
     // slidesToShow: 1    // focusOnSelect: true,
-
   };
 
   const [nav1, setNav1] = useState(null);
@@ -197,6 +200,7 @@ const MenuOptions: React.FC = () => {
       >
         {sliderData.map((item, index) => (
           <div
+            key={index}
             className="relative max-h-[504px] "
             onClick={() => {
               slider1?.slickGoTo(index);
@@ -216,7 +220,7 @@ const MenuOptions: React.FC = () => {
             <div className="absolute bottom-[12px] sm:bottom-[24px]  flex gap-3 m-auto left-1/2 translate-x-[-50%]">
               {sliderData.map((_, idx) => (
                 <div
-                  className={` w-[10px] h-[10px] sm:h-[14px]  sm:w-[14px] border-2  border-white rounded-full   ${currentSlide === idx && 'bg-[#11A1AE]'} `}
+                  key={idx} className={` w-[10px] h-[10px] sm:h-[14px]  sm:w-[14px] border-2  border-white rounded-full   ${currentSlide === idx && 'bg-[#11A1AE]'} `}
                 ></div>
               ))}
             </div>
@@ -226,15 +230,16 @@ const MenuOptions: React.FC = () => {
       <div className="hidden sm:flex">
         {sliderData.map((item, idx) => (
           <CustomButton
+            key={idx}
             className={` bg-gray-200 w-full min-h-[86px]  sm:text-[10px] md:text-[12px] lg:text-[16px] leading-[19px] transition font-bold -mt-[10px] rounded-b-[50px] ${currentSlide === idx && ' text-white'} `}
             onClick={() => {
               slider1?.slickGoTo(idx);
-            } }
-            buttonType={'login'}   
+            }}
+            buttonType={'login'}
             borderRadius="rounded-b-[50px]"
-            whiteBtn={currentSlide != idx}       
+            whiteBtn={currentSlide != idx}
             active={true}
-            >
+          >
             <span className="uppercase">
               {item.btnTitle.title1}
               <br />
@@ -243,9 +248,9 @@ const MenuOptions: React.FC = () => {
           </CustomButton>
         ))}
       </div>
-      <div className='h-[44px] '>
-        {sliderData.map((item) => (
-          <h2 className="sm:hidden  text-[16px] leading-[16px] font-semibold text-black ">
+      <div className="h-[44px] ">
+        {sliderData.map((item,i) => (
+          <h2 key={i} className="sm:hidden  text-[16px] leading-[16px] font-semibold text-black ">
             {item.id === currentSlide + 1 && item.title()}
           </h2>
         ))}
