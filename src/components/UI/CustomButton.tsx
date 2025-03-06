@@ -1,6 +1,6 @@
 import cn from '@/utils/cn';
 
-type ButtonType = 'login' | 'language';
+type ButtonType = 'login' | 'language' | 'custom';
 
 interface ButtonProps {
   children: React.ReactNode;

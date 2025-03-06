@@ -28,11 +28,11 @@ const Header: React.FC = () => {
       className={cn(
         'w-full h-full flex justify-between',
         isAuth && 'items-center pt-[1.375rem]',
-        restaurantPath && 'bg-gradientToTop px-12'
+        restaurantPath && 'bg-gradientToTop px-12 py-3.5 msm:px-4'
       )}
     >
       {restaurantPath ? (
-        <h1 className="text-white py-5">Назва ресторану</h1>
+        <h1 className="text-white mmd:hidden">Назва ресторану</h1>
       ) : (
         <img
           className={cn(
@@ -49,7 +49,12 @@ const Header: React.FC = () => {
           restaurantPath && 'items-center gap-[10%]'
         )}
       >
-        <div className="flex flex-1 justify-end items-center gap-1">
+        <div
+          className={cn(
+            'flex flex-1 justify-end items-center gap-1',
+            restaurantPath && 'mmd:justify-start'
+          )}
+        >
           <CustomButton
             restaurantPage
             className={cn(
@@ -106,16 +111,9 @@ const Header: React.FC = () => {
         )}
         {restaurantPath && (
           <Link to="/">
-            <button onClick={() => console.log('Home')}>
-              <img
-                className="w-8 h-8 sm:hidden inline-block"
-                src={LoginIcon}
-                alt="Home"
-              />
-            </button>
             <CustomButton
               buttonType="login"
-              className="w-[6.6rem] h-[2.3rem] hidden sm:inline-block"
+              className="w-[6.6rem] h-[2.3rem]"
               borderRadius="rounded-[.625rem] before:rounded-[.625rem]"
               onClick={() => console.log('Home')}
             >

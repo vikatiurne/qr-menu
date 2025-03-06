@@ -16,6 +16,7 @@ export default {
       },
       screens: {
         msm: { max: '640px' },
+        mmd: { max: '834px' },
         mxl: { max: '1280px' },
         tablet: { max: '1024px' },
         mobile: { max: '375px' },

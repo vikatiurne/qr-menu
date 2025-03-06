@@ -37,7 +37,7 @@ const Hero: React.FC = () => {
               <CustomButton
                 className="lg:text-[22px] md:h-[54px] lg:w-[216px] text-[19px] h-[42px] w-[178px] leading-[21.6px] text-white bg-none "
                 borderRadius="rounded-lg"
-                buttonType="menuOptions" // Додай значення для buttonType (залежить від опису)
+                buttonType="custom" // Додай значення для buttonType (залежить від опису)
                 active={true}
                 whiteBtn={false}
               >
