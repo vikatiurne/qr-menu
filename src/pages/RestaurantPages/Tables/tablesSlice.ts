@@ -6,7 +6,7 @@ interface Order {
     quantity: number;
   }
 
-interface Table {
+export interface Table {
   id: number;
   order: Order[]; 
   status: 'free' | 'serviced'; 
