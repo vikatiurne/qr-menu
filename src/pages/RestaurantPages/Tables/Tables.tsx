@@ -9,6 +9,11 @@ const Tables: React.FC = () => {
   const [isCallTable, setIsCallTable] = useState<number>(1);
   const [isActivePopup, setIsActivePopup] = useState<boolean>(false);
   const [isActiveStatus, setIsActiveStatus] = useState<number>(0);
+  const data = new Date().toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  });
 
   const dispatch = useDispatch();
   const { tables } = useSelector((state) => state.tables);
@@ -19,9 +24,12 @@ const Tables: React.FC = () => {
 
   return (
     <div className="relative">
-      <h1 className="text-[52px] font-semibold ml-[86px] mt-[48px] text-[#15C5CE]">
-        Tables
-      </h1>
+      <div className='flex items-center justify-between mx-[86px] mt-[48px]'>
+        <h1 className="text-[52px] font-semibold  text-[#15C5CE]">
+          Tables
+        </h1>
+        <span>Data: {data}</span>
+      </div>
       <ListTables
         tables={tables}
         isCallTable={isCallTable}

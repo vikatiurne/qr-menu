@@ -22,12 +22,12 @@ const ListTablesItem: React.FC<ListTablesItemProps> = ({
   setIsActivePopup,
   styleSizeCell
 }) => {
-    
   return (
     <li
       className={`${isCallTable === item.id && 'bg-[#D0EEF1]'} flex justify-between items-center border-b-[1px] border-b-[#EEEEEE] h-[48px] `}
       key={item.id}
     >
+      
       <div className="text-center w-[120px]">
         <span>{item.id}</span>
       </div>
