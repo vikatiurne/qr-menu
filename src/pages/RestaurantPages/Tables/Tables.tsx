@@ -2,8 +2,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { initializeTables } from './tablesSlice';
 import { useEffect, useState } from 'react';
 import Popup from '@/components/UI/Popup';
-import TablesPopup from '@/components/Tables/TablesPopup';
-import ListTables from './ListTables';
+import TablesPopupOrder from '@/components/Tables/TablesPopupOrder';
+import ListTables from '../../../components/Tables/ListTables';
 
 const Tables: React.FC = () => {
   const [isCallTable, setIsCallTable] = useState<number>(1);
@@ -33,7 +33,7 @@ const Tables: React.FC = () => {
       {isActivePopup && (
         <div className="absolute left-0 right-0 top-[182px] flex justify-center ">
           <Popup className="min-w-[500px] min-h-[300px] bg-white rounded-[12px] text-center">
-            <TablesPopup
+            <TablesPopupOrder
               setIsActivePopup={setIsActivePopup}
               isActivePopup={isActivePopup}
             />

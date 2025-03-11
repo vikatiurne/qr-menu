@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface TablesPopupProps{
-    setIsActivePopup: () => void 
+    setIsActivePopup: (boolean) => void 
     isActivePopup: boolean
 }
 
