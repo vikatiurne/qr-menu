@@ -5,29 +5,21 @@ import ListTablesItem from './ListTablesItem';
 interface ListTablesProps {
   tables: Table[];
   isCallTable: number;
-  isActiveStatus: number;
-  isActivePopup: boolean;
-  setIsActiveStatus: (id: number) => void;
-  setIsActivePopup: (boolean) => void;
 }
 
 const ListTables: React.FC<ListTablesProps> = ({
   tables,
   isCallTable,
-  isActiveStatus,
-  isActivePopup,
-  setIsActiveStatus,
-  setIsActivePopup,
 }) => {
-  const styleSizeCell = 'w-[170px] text-center';
+  const styleSizeCell = 'w-[170px] text-center font-medium';
   return (
-    <div className="flex items-center justify-center">
+    <div className="flex items-center justify-center mt-[96px]">
       {/* Start tables */}
       <ul>
         <li className="flex justify-between items-center bg-[#FAFAFA]  border-b-[1px] border-b-[#EEEEEE] h-[48px]">
           <span className="w-[120px] text-center font-medium">Table №</span>
           <span className={`${styleSizeCell} font-medium `}>Order</span>
-          <span className={`${styleSizeCell} font-medium `}>Table status</span>
+          <span className={`${styleSizeCell} font-medium `}>Table Status</span>
           <span className={`${styleSizeCell} font-medium `}>Call</span>
         </li>
         {tables.map((item) => (
@@ -35,10 +27,6 @@ const ListTables: React.FC<ListTablesProps> = ({
             key={item.id}
             item={item}
             isCallTable={isCallTable}
-            isActivePopup={isActivePopup}
-            setIsActivePopup={setIsActivePopup}
-            isActiveStatus={isActiveStatus}
-            setIsActiveStatus={setIsActiveStatus}
             styleSizeCell={styleSizeCell}
           />
         ))}

@@ -1,15 +1,13 @@
 import React from 'react';
 
 interface TablesPopupProps{
-    setIsActivePopup: (boolean) => void 
-    isActivePopup: boolean
+  
 }
 
-const TablesPopup:React.FC<TablesPopupProps> = ({setIsActivePopup , isActivePopup}) => {
+const TablesPopup:React.FC<TablesPopupProps> = () => {
     return (
         <div>
-            <span onClick={() => setIsActivePopup(!isActivePopup)} className='cursor-pointer'>close</span>
-            <h1>Ordering the table 1</h1>
+            <h1>Ordering the table 12</h1>
         </div>
     );
 };
