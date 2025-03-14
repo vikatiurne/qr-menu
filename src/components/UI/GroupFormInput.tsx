@@ -40,17 +40,14 @@ const GroupFormInput: React.FC<GroupFormInputProps> = ({
   const inputClassName =
     groupType === 'auth'
       ? 'outline-[#15C5CE] border  w-full h-[59px] rounded-md pl-[18px] max-sm:h-[48px]'
-      : 'w-full font-[18px] placeholder:text-[18px] h-[52px] border border-[#15C5CE] rounded-[10px] focus:outline-none focus:ring-2 focus:ring-[#15C5CE] focus:border-transparent';;
-      const errorClass = error
-      ? groupType === 'joinUs'
-        ? 'mb-[14px]'  // Менша відстань для 'joinUs' і помилки
-        : 'mb-[34px]'  // Стандартна відстань 34 пікселі (приблизно mb-8)
-      : 'mb-[34px]';
-  
-  
-  
-  
-      return (
+      : 'w-full font-[18px] placeholder:text-[18px] h-[52px] border border-[#15C5CE] rounded-[10px] focus:outline-none focus:ring-2 focus:ring-[#15C5CE] focus:border-transparent';
+  const errorClass = error
+    ? groupType === 'joinUs'
+      ? 'mb-[14px]' // Менша відстань для 'joinUs' і помилки
+      : 'mb-[34px]' // Стандартна відстань 34 пікселі (приблизно mb-8)
+    : 'mb-[34px]';
+
+  return (
     <div className={` ${divClassName} ${errorClass}`}>
       {title && <h3 className="text-[16px] font-medium">{title}</h3>}
       <div className="flex relative">
@@ -66,7 +63,7 @@ const GroupFormInput: React.FC<GroupFormInputProps> = ({
             {leftTypeIcon}
           </span>
         )}
-        {error && groupType === 'joinUs' &&(
+        {error && groupType === 'joinUs' && (
           <span className="absolute right-[8px] top-1/2 -translate-y-1/2 h-5 w-5">
             <svg
               width="22"
