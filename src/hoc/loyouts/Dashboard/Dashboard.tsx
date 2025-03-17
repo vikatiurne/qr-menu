@@ -9,8 +9,9 @@ const Dashboard: React.FC = () => {
   const restaurantPath = pathname.includes('/restaurant');
 
   return (
-    <div>
+    <div className="min-h-[100vh] flex flex-col">
       <Suspense>
+<<<<<<< HEAD
         <Container
           padding={cn(
             !restaurantPath && 'px-36',
@@ -19,6 +20,9 @@ const Dashboard: React.FC = () => {
           )}
           maxWidth={cn(restaurantPath && 'max-w-none')}
         >
+=======
+        <Container padding="px-36 tablet:px-11 mobile:px-4  w-full">
+>>>>>>> Tables
           <Header />
         </Container>
         <Outlet />
