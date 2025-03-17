@@ -8,6 +8,7 @@ import icon11 from '@/assets/Sidebar/svg/11.svg';
 import icon22 from '@/assets/Sidebar/svg/22.svg';
 import icon33 from '@/assets/Sidebar/svg/33.svg';
 import icon44 from '@/assets/Sidebar/svg/44.svg';
+import logo from '@/assets/tables/svg/logo.svg';
 
 import CustomButton from './CustomButton';
 type listNavType = {
@@ -21,7 +22,6 @@ interface ListNavigateProps {
   typeSidebar: boolean;
 }
 const ListNavigate: React.FC<ListNavigateProps> = ({ typeSidebar }) => {
-
   const listNav: listNavType[] = [
     {
       title: 'Tables',
@@ -53,45 +53,48 @@ const ListNavigate: React.FC<ListNavigateProps> = ({ typeSidebar }) => {
     },
   ];
   const [activeLink, setActiveLink] = useState(0);
-  
+
   return (
-    <div
-      className={`flex flex-col ${typeSidebar ? 'gap-[36px]' : 'gap-[24px]'}  `}
-    >
-      {listNav.map((nav) => (
-        <Link
-          className={`text-white  font-semibold ${typeSidebar ? 'text-[24px]' : 'text-[18px]'}  `}
-          to={nav.link}
-          key={nav.id}
-          onClick={ () => setActiveLink(nav.id) }
-        >
-          <CustomButton
-            buttonType={'login'}
-            active={true}
-            whiteBtn={
-              !typeSidebar && activeLink != nav.id
-            }
-            className={`${typeSidebar ? 'w-[372px]' : 'w-[225px]'} ${typeSidebar ? 'h-[55px]' : 'h-[50px]'}   flex items-center justify-center ${ typeSidebar || activeLink === nav.id ? 'text-white' : 'text-black'} `}
-            borderRadius="rounded-[6px]"
+    <>
+      <img className="mt-24 mb-[5.375rem]" src={logo} alt="logo" />
+      <div
+        className={`flex flex-col ${typeSidebar ? 'gap-[36px]' : 'gap-[24px]'}  `}
+      >
+        {listNav.map((nav) => (
+          <Link
+            className={`text-white  font-semibold ${typeSidebar ? 'text-[24px]' : 'text-[18px]'}  `}
+            to={nav.link}
+            key={nav.id}
+            onClick={() => setActiveLink(nav.id)}
           >
-            <div className="flex items-center justify-center gap-[16px] ">
-              <img
-                src={
-                  (!typeSidebar && activeLink === nav.id || typeSidebar ? nav.icon : nav.icon2)
-                }
-                alt=""
-                className={` w-[24px] h-[24px] ${nav.id === 0 && 'w-[22px] h-[19px]'} `}
-              />
-              <div>
-                {typeSidebar
-                  ? nav.title.toLocaleUpperCase()
-                  : nav.title.charAt(0).toUpperCase() + nav.title.slice(1)}
+            <CustomButton
+              buttonType={'login'}
+              active={true}
+              whiteBtn={!typeSidebar && activeLink != nav.id}
+              className={`${typeSidebar ? 'w-[372px]' : 'w-[225px]'} ${typeSidebar ? 'h-[55px]' : 'h-[50px]'}   flex items-center justify-center ${typeSidebar || activeLink === nav.id ? 'text-white' : 'text-black'} `}
+              borderRadius="rounded-[6px]"
+            >
+              <div className="flex items-center justify-center gap-[16px] ">
+                <img
+                  src={
+                    (!typeSidebar && activeLink === nav.id) || typeSidebar
+                      ? nav.icon
+                      : nav.icon2
+                  }
+                  alt=""
+                  className={` w-[24px] h-[24px] ${nav.id === 0 && 'w-[22px] h-[19px]'} `}
+                />
+                <div>
+                  {typeSidebar
+                    ? nav.title.toLocaleUpperCase()
+                    : nav.title.charAt(0).toUpperCase() + nav.title.slice(1)}
+                </div>
               </div>
-            </div>
-          </CustomButton>
-        </Link>
-      ))}
-    </div>
+            </CustomButton>
+          </Link>
+        ))}
+      </div>
+    </>
   );
 };
 

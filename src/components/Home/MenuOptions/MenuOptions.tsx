@@ -205,7 +205,6 @@ const MenuOptions: React.FC = () => {
             onClick={() => {
               slider1?.slickGoTo(index);
             }}
-            key={index}
           >
             <img
               src={item.image}

@@ -3,6 +3,7 @@ import { initializeTables } from './tablesSlice';
 import { useEffect, useState } from 'react';
 import ListTables from '../../../components/Tables/ListTables';
 
+
 const Tables: React.FC = () => {
   const [isCallTable, setIsCallTable] = useState<number>(1);
   const data = new Date().toLocaleDateString('en-US', {
@@ -24,7 +25,7 @@ const Tables: React.FC = () => {
         <h1 className="text-[52px] font-semibold  text-[#15C5CE]">Tables</h1>
         <span className=" font-medium">Data: {data}</span>
       </div>
-      <ListTables tables={tables} isCallTable={isCallTable} />
+        <ListTables tables={tables} isCallTable={isCallTable} />
     </div>
   );
 };
