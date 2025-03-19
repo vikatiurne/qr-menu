@@ -5,7 +5,7 @@ import HeroCardImgRt from '@/assets/Home/cardImgRt.png';
 
 const Hero: React.FC = () => {
   return (
-    <div className="grid grid-rows-2 font-elMessiri text-center text-[#2B2A34]">
+    <div className="font-elMessiri text-center text-[#2B2A34]">
       <div className="container mx-auto min-w-[164px] xl:mb-[100px] sm:mb-[4em] mb-[3em] mobile:mb-[50px]">
         <div className="grid grid-cols-1 gap-[24px] xl:grid-cols-2">
           {/* Part 1 */}
