@@ -9,21 +9,21 @@ const Dashboard: React.FC = () => {
   const restaurantPath = pathname.includes('/restaurant');
 
   return (
-    <div>
-      <Suspense>
-        <Container
-          padding={cn(
-            !restaurantPath && 'px-36',
-            'tablet:px-11 mobile:px-4',
-            restaurantPath && 'tablet:px-0 mobile:px-0'
-          )}
-          maxWidth={cn(restaurantPath && 'max-w-none')}
-        >
-          <Header />
-        </Container>
-        <Outlet />
-      </Suspense>
-    </div>
+    <div className="min-h-screen flex flex-col ">
+    <Suspense>
+      <Container
+        padding={cn(
+          !restaurantPath && 'px-36',
+          'tablet:px-11 mobile:px-4 w-full',
+          restaurantPath && 'tablet:px-0 mobile:px-0'
+        )}
+        maxWidth={cn(restaurantPath && 'min-w-full')}
+      >
+        <Header />
+      </Container>
+      <Outlet />
+    </Suspense>
+  </div>
   );
 };
 export default Dashboard;

@@ -6,12 +6,10 @@ import RestaurantPagesRouter from '@/router/RestaurantPagesRouter';
 
 const RestaurantPages: React.FC = () => {
   return (
-    <div className='flex flex-1 gap-2  '>
-      <Suspense>
-          <Sidebar />
-        <RestaurantPagesRouter />
-        <Outlet />
-      </Suspense>
+    <div className="flex flex-1 ">
+      <Sidebar />
+      <RestaurantPagesRouter />
+      <Outlet />
     </div>
   );
 };
