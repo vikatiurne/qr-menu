@@ -15,7 +15,7 @@ const ListTables: React.FC<ListTablesProps> = ({
   return (
     <div className="flex items-center justify-center mt-[96px]">
       {/* Start tables */}
-      <ul>
+      <ul >
         <li className="flex justify-between items-center bg-[#FAFAFA]  border-b-[1px] border-b-[#EEEEEE] h-[48px]">
           <span className="w-[120px] text-center font-medium">Table №</span>
           <span className={`${styleSizeCell} font-medium `}>Order</span>
