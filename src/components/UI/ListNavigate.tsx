@@ -1,8 +1,8 @@
 import { Link, useLocation } from 'react-router-dom';
-import icon1 from '@/assets/Sidebar/svg/1r.svg';
-import icon2 from '@/assets/Sidebar/svg/menu.svg';
-import icon3 from '@/assets/Sidebar/svg/3.svg';
-import icon4 from '@/assets/Sidebar/svg/4.png';
+import icon1 from '@/assets/restaurant/welcome/svg/1r.svg';
+import icon2 from '@/assets/restaurant/welcome/svg/menu.svg';
+import icon3 from '@/assets/restaurant/welcome/svg/3.svg';
+import icon4 from '@/assets/restaurant/welcome/svg/4.png';
 import CustomButton from './CustomButton';
 
 type listNavType = {
@@ -49,7 +49,7 @@ const ListNavigate: React.FC<ListNavigateProps> = ({
                 activeWhiteBtn &&
                 pathname != `/restaurant/${nav.title.toLocaleLowerCase()}`
               }
-              className={`${sizeBtn} uppercase flex items-center justify-center ${pathname === `/restaurant/sidebar` || pathname === `/restaurant/${nav.title.toLocaleLowerCase()}` ? 'text-white' : 'text-black'} `}
+              className={`${sizeBtn} uppercase flex items-center justify-center ${pathname === `/restaurant` || pathname === `/restaurant/${nav.title.toLocaleLowerCase()}` ? 'text-white' : 'text-black'} `}
               borderRadius="rounded-[6px]"
             >
               <div className="flex items-center justify-center gap-[16px] ">
