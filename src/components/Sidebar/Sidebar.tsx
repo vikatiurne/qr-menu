@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom';
 
 const Sidebar: React.FC = () => {
   const { pathname } = useLocation();
-  const appSidebar = pathname === '/restaurant/sidebar' ? true : false;
+  const appSidebar = pathname === '/restaurant' ? true : false;
 
   return (
     <div
